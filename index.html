@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PRV Fund House</title>
+
+<style>
+*{box-sizing:border-box}
+
+body{
+margin:0;
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+background:#080b12;
+color:#f5f7fa;
+}
+
+.app{
+max-width:520px;
+margin:auto;
+padding:18px;
+}
+
+.header{
+padding:18px 0 22px;
+}
+
+.logo{
+font-size:28px;
+font-weight:800;
+}
+
+.sub{
+color:#8d96a8;
+margin-top:5px;
+}
+
+.card{
+background:#111722;
+border:1px solid #252d3a;
+border-radius:18px;
+padding:18px;
+margin:14px 0;
+box-shadow:0 8px 25px rgba(0,0,0,.25);
+}
+
+.hero{
+background:linear-gradient(145deg,#17233a,#0f141e);
+}
+
+.hero h1{
+font-size:30px;
+margin:0 0 8px;
+}
+
+.hero p{
+color:#aeb7c6;
+line-height:1.6;
+}
+
+.section{
+font-size:20px;
+font-weight:750;
+margin:25px 0 12px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:12px;
+}
+
+.fund{
+min-height:150px;
+}
+
+.fund h3{
+margin:0 0 8px;
+font-size:17px;
+}
+
+.fund p{
+color:#9ca6b7;
+font-size:13px;
+line-height:1.45;
+}
+
+.badge{
+display:inline-block;
+padding:5px 9px;
+border-radius:20px;
+background:#182a20;
+color:#62d889;
+font-size:11px;
+font-weight:700;
+margin-bottom:10px;
+}
+
+.metric{
+display:flex;
+justify-content:space-between;
+padding:10px 0;
+border-bottom:1px solid #222a35;
+}
+
+.metric:last-child{
+border-bottom:0;
+}
+
+.label{
+color:#9ca6b7;
+}
+
+.value{
+font-weight:700;
+}
+
+.nav{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:10px;
+margin-top:15px;
+}
+
+.nav div{
+background:#151c28;
+border:1px solid #293241;
+padding:14px 5px;
+border-radius:14px;
+text-align:center;
+font-size:12px;
+}
+
+.footer{
+text-align:center;
+color:#697386;
+font-size:12px;
+padding:25px 0;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+<div class="header">
+<div class="logo">📗 PRV FUND HOUSE</div>
+<div class="sub">Research • Investment • Portfolio Intelligence</div>
+</div>
+
+<div class="card hero">
+<h1>PRV Dashboard</h1>
+<p>
+A structured research and investment system built around
+specialized PRV strategy funds.
+</p>
+
+<div class="nav">
+<div>📊 Dashboard</div>
+<div>📈 Market</div>
+<div>🏦 Institutions</div>
+</div>
+</div>
+
+<div class="section">🎯 PRV Strategy Funds</div>
+
+<div class="grid">
+
+<div class="card fund">
+<span class="badge">COMPOUNDER</span>
+<h3>PRV Compounder Discovery</h3>
+<p>3–5 year structural growth and compounding opportunities.</p>
+</div>
+
+<div class="card fund">
+<span class="badge">INSTITUTIONAL</span>
+<h3>PRV Institutional Conviction</h3>
+<p>Institutional ownership + fundamentals + future scale-up.</p>
+</div>
+
+<div class="card fund">
+<span class="badge">ROTATION</span>
+<h3>PRV Sector Rotation</h3>
+<p>Early sector rotation using 6 institutional signals.</p>
+</div>
+
+<div class="card fund">
+<span class="badge">SWING</span>
+<h3>PRV Swing Core</h3>
+<p>1–6 week fundamental + momentum swing framework.</p>
+</div>
+
+<div class="card fund">
+<span class="badge">VALUE</span>
+<h3>PRV Value Opportunity</h3>
+<p>Valuation reset + business quality + margin of safety.</p>
+</div>
+
+<div class="card fund">
+<span class="badge">GROWTH</span>
+<h3>PRV Growth & Scale</h3>
+<p>Sales, profit, ROCE, capex and capacity expansion.</p>
+</div>
+
+<div class="card fund">
+<span class="badge">TURNAROUND</span>
+<h3>PRV Turnaround</h3>
+<p>Earnings recovery, balance-sheet improvement and re-rating.</p>
+</div>
+
+<div class="card fund">
+<span class="badge">MOMENTUM</span>
+<h3>PRV Momentum</h3>
+<p>Price strength, volume, breakout and institutional activity.</p>
+</div>
+
+</div>
+
+<div class="section">📊 Research Dashboard</div>
+
+<div class="card">
+
+<div class="metric">
+<span class="label">ROCE / ROE</span>
+<span class="value">Track</span>
+</div>
+
+<div class="metric">
+<span class="label">Sales Growth</span>
+<span class="value">Track</span>
+</div>
+
+<div class="metric">
+<span class="label">Profit Growth</span>
+<span class="value">Track</span>
+</div>
+
+<div class="metric">
+<span class="label">Cash Generation</span>
+<span class="value">Track</span>
+</div>
+
+<div class="metric">
+<span class="label">Capex / CWIP</span>
+<span class="value">Track</span>
+</div>
+
+<div class="metric">
+<span class="label">Order Book</span>
+<span class="value">Track</span>
+</div>
+
+</div>
+
+<div class="section">🏦 Institutional Activity</div>
+
+<div class="card">
+
+<div class="metric">
+<span class="label">FII Holding</span>
+<span class="value">Monitor</span>
+</div>
+
+<div class="metric">
+<span class="label">DII Holding</span>
+<span class="value">Monitor</span>
+</div>
+
+<div class="metric">
+<span class="label">MF Holding</span>
+<span class="value">Monitor</span>
+</div>
+
+<div class="metric">
+<span class="label">Promoter Holding</span>
+<span class="value">Monitor</span>
+</div>
+
+</div>
+
+<div class="section">🔄 Sector Rotation</div>
+
+<div class="card">
+
+<div class="metric">
+<span class="label">Relative Strength</span>
+<span class="value">—</span>
+</div>
+
+<div class="metric">
+<span class="label">Earnings Growth</span>
+<span class="value">—</span>
+</div>
+
+<div class="metric">
+<span class="label">Institutional Flow</span>
+<span class="value">—</span>
+</div>
+
+<div class="metric">
+<span class="label">Sector Breadth</span>
+<span class="value">—</span>
+</div>
+
+<div class="metric">
+<span class="label">Price / Volume</span>
+<span class="value">—</span>
+</div>
+
+<div class="metric">
+<span class="label">Valuation</span>
+<span class="value">—</span>
+</div>
+
+</div>
+
+<div class="section">⚠️ Risk & Sell Discipline</div>
+
+<div class="card">
+
+<div class="metric">
+<span class="label">Thesis Broken</span>
+<span class="value">Exit Review</span>
+</div>
+
+<div class="metric">
+<span class="label">Earnings Failure</span>
+<span class="value">Exit Review</span>
+</div>
+
+<div class="metric">
+<span class="label">Valuation Excess</span>
+<span class="value">Reduce</span>
+</div>
+
+<div class="metric">
+<span class="label">Technical Invalidation</span>
+<span class="value">Review</span>
+</div>
+
+</div>
+
+<div class="section">🎯 Research Accuracy</div>
+
+<div class="card">
+
+<div class="metric">
+<span class="label">Direction Correct</span>
+<span class="value">—</span>
+</div>
+
+<div class="metric">
+<span class="label">Target Achieved</span>
+<span class="value">—</span>
+</div>
+
+<div class="metric">
+<span class="label">Stop / Invalidation</span>
+<span class="value">—</span>
+</div>
+
+<div class="metric">
+<span class="label">Earnings Thesis</span>
+<span class="value">—</span>
+</div>
+
+</div>
+
+<div class="card hero">
+<h3>🔎 PRV Research Process</h3>
+<p>
+SCAN → QUALIFY → RANK → ACCUMULATE → MONITOR → REVIEW
+</p>
+</div>
+
+<div class="footer">
+PRV Fund House • Research Intelligence System<br>
+Version 1.0
+</div>
+
+</div>
+
+</body>
+</html>
