@@ -1,0 +1,36 @@
+{
+  "research_dashboard": {
+    "roce_roe": "Track",
+    "sales_growth": "Track",
+    "profit_growth": "Track",
+    "cash_generation": "Track",
+    "capex_cwip": "Track",
+    "order_book": "Track"
+  },
+  "institutional_activity": {
+    "fii_holding": "Monitor",
+    "dii_holding": "Monitor",
+    "mf_holding": "Monitor",
+    "promoter_holding": "Monitor"
+  },
+  "sector_rotation": {
+    "relative_strength": null,
+    "earnings_growth": null,
+    "institutional_flow": null,
+    "sector_breadth": null,
+    "price_volume": null,
+    "valuation": null
+  },
+  "risk_sell_discipline": {
+    "thesis_broken": "Exit Review",
+    "earnings_failure": "Exit Review",
+    "valuation_excess": "Reduce",
+    "technical_invalidation": "Review"
+  },
+  "research_accuracy": {
+    "direction_correct": null,
+    "target_achieved": null,
+    "stop_invalidation": null,
+    "earnings_thesis": null
+  }
+}
