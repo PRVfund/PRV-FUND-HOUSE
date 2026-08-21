@@ -16,13 +16,13 @@ color:#f5f7fa;
 }
 
 .app{
-max-width:520px;
+max-width:650px;
 margin:auto;
-padding:18px;
+padding:16px;
 }
 
 .header{
-padding:18px 0 22px;
+padding:18px 4px 12px;
 }
 
 .logo{
@@ -33,6 +33,7 @@ font-weight:800;
 .sub{
 color:#8d96a8;
 margin-top:5px;
+font-size:14px;
 }
 
 .card{
@@ -40,8 +41,8 @@ background:#111722;
 border:1px solid #252d3a;
 border-radius:18px;
 padding:18px;
-margin:14px 0;
-box-shadow:0 8px 25px rgba(0,0,0,.25);
+margin:12px 0;
+box-shadow:0 8px 25px rgba(0,0,0,.22);
 }
 
 .hero{
@@ -56,6 +57,7 @@ margin:0 0 8px;
 .hero p{
 color:#aeb7c6;
 line-height:1.6;
+margin-bottom:0;
 }
 
 .section{
@@ -67,16 +69,16 @@ margin:25px 0 12px;
 .grid{
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:12px;
+gap:10px;
 }
 
 .fund{
-min-height:150px;
+min-height:145px;
 }
 
 .fund h3{
 margin:0 0 8px;
-font-size:17px;
+font-size:16px;
 }
 
 .fund p{
@@ -91,15 +93,16 @@ padding:5px 9px;
 border-radius:20px;
 background:#182a20;
 color:#62d889;
-font-size:11px;
+font-size:10px;
 font-weight:700;
-margin-bottom:10px;
+margin-bottom:9px;
 }
 
 .metric{
 display:flex;
 justify-content:space-between;
-padding:10px 0;
+gap:15px;
+padding:11px 0;
 border-bottom:1px solid #222a35;
 }
 
@@ -113,22 +116,22 @@ color:#9ca6b7;
 
 .value{
 font-weight:700;
+text-align:right;
 }
 
-.nav{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:10px;
-margin-top:15px;
+.green{color:#62d889}
+.yellow{color:#e9c46a}
+.red{color:#ff7272}
+
+.score{
+font-size:30px;
+font-weight:800;
 }
 
-.nav div{
-background:#151c28;
-border:1px solid #293241;
-padding:14px 5px;
-border-radius:14px;
-text-align:center;
-font-size:12px;
+.process{
+font-weight:700;
+letter-spacing:.5px;
+line-height:1.8;
 }
 
 .footer{
@@ -138,6 +141,11 @@ font-size:12px;
 padding:25px 0;
 }
 
+@media(max-width:430px){
+.grid{
+grid-template-columns:1fr;
+}
+}
 </style>
 </head>
 
@@ -147,7 +155,9 @@ padding:25px 0;
 
 <div class="header">
 <div class="logo">📗 PRV FUND HOUSE</div>
-<div class="sub">Research • Investment • Portfolio Intelligence</div>
+<div class="sub">
+Research • Investment • Portfolio Intelligence
+</div>
 </div>
 
 <div class="card hero">
@@ -156,12 +166,6 @@ padding:25px 0;
 A structured research and investment system built around
 specialized PRV strategy funds.
 </p>
-
-<div class="nav">
-<div>📊 Dashboard</div>
-<div>📈 Market</div>
-<div>🏦 Institutions</div>
-</div>
 </div>
 
 <div class="section">🎯 PRV Strategy Funds</div>
@@ -189,7 +193,7 @@ specialized PRV strategy funds.
 <div class="card fund">
 <span class="badge">SWING</span>
 <h3>PRV Swing Core</h3>
-<p>1–6 week fundamental + momentum swing framework.</p>
+<p>1–6 week fundamental + momentum framework.</p>
 </div>
 
 <div class="card fund">
@@ -224,32 +228,32 @@ specialized PRV strategy funds.
 
 <div class="metric">
 <span class="label">ROCE / ROE</span>
-<span class="value">Track</span>
+<span class="value green" id="roce">Track</span>
 </div>
 
 <div class="metric">
 <span class="label">Sales Growth</span>
-<span class="value">Track</span>
+<span class="value green" id="sales">Track</span>
 </div>
 
 <div class="metric">
 <span class="label">Profit Growth</span>
-<span class="value">Track</span>
+<span class="value green" id="profit">Track</span>
 </div>
 
 <div class="metric">
 <span class="label">Cash Generation</span>
-<span class="value">Track</span>
+<span class="value green" id="cash">Track</span>
 </div>
 
 <div class="metric">
 <span class="label">Capex / CWIP</span>
-<span class="value">Track</span>
+<span class="value green" id="capex">Track</span>
 </div>
 
 <div class="metric">
 <span class="label">Order Book</span>
-<span class="value">Track</span>
+<span class="value green" id="orders">Track</span>
 </div>
 
 </div>
@@ -260,58 +264,63 @@ specialized PRV strategy funds.
 
 <div class="metric">
 <span class="label">FII Holding</span>
-<span class="value">Monitor</span>
+<span class="value" id="fii">Monitor</span>
 </div>
 
 <div class="metric">
 <span class="label">DII Holding</span>
-<span class="value">Monitor</span>
+<span class="value" id="dii">Monitor</span>
 </div>
 
 <div class="metric">
 <span class="label">MF Holding</span>
-<span class="value">Monitor</span>
+<span class="value" id="mf">Monitor</span>
 </div>
 
 <div class="metric">
 <span class="label">Promoter Holding</span>
-<span class="value">Monitor</span>
+<span class="value" id="promoter">Monitor</span>
 </div>
 
 </div>
 
-<div class="section">🔄 Sector Rotation</div>
+<div class="section">🔄 Sector Rotation — 6 Signals</div>
 
 <div class="card">
 
 <div class="metric">
 <span class="label">Relative Strength</span>
-<span class="value">—</span>
+<span class="value" id="rs">—</span>
 </div>
 
 <div class="metric">
 <span class="label">Earnings Growth</span>
-<span class="value">—</span>
+<span class="value" id="earnings">—</span>
 </div>
 
 <div class="metric">
 <span class="label">Institutional Flow</span>
-<span class="value">—</span>
+<span class="value" id="flow">—</span>
 </div>
 
 <div class="metric">
 <span class="label">Sector Breadth</span>
-<span class="value">—</span>
+<span class="value" id="breadth">—</span>
 </div>
 
 <div class="metric">
 <span class="label">Price / Volume</span>
-<span class="value">—</span>
+<span class="value" id="price">—</span>
 </div>
 
 <div class="metric">
 <span class="label">Valuation</span>
-<span class="value">—</span>
+<span class="value" id="valuation">—</span>
+</div>
+
+<div class="metric">
+<span class="label">Rotation Rule</span>
+<span class="value yellow">Minimum 4 / 6</span>
 </div>
 
 </div>
@@ -322,22 +331,22 @@ specialized PRV strategy funds.
 
 <div class="metric">
 <span class="label">Thesis Broken</span>
-<span class="value">Exit Review</span>
+<span class="value red">Exit Review</span>
 </div>
 
 <div class="metric">
 <span class="label">Earnings Failure</span>
-<span class="value">Exit Review</span>
+<span class="value red">Exit Review</span>
 </div>
 
 <div class="metric">
 <span class="label">Valuation Excess</span>
-<span class="value">Reduce</span>
+<span class="value yellow">Reduce</span>
 </div>
 
 <div class="metric">
 <span class="label">Technical Invalidation</span>
-<span class="value">Review</span>
+<span class="value yellow">Review</span>
 </div>
 
 </div>
@@ -348,39 +357,89 @@ specialized PRV strategy funds.
 
 <div class="metric">
 <span class="label">Direction Correct</span>
-<span class="value">—</span>
+<span class="value" id="direction">—</span>
 </div>
 
 <div class="metric">
 <span class="label">Target Achieved</span>
-<span class="value">—</span>
+<span class="value" id="target">—</span>
 </div>
 
 <div class="metric">
 <span class="label">Stop / Invalidation</span>
-<span class="value">—</span>
+<span class="value" id="stop">—</span>
 </div>
 
 <div class="metric">
 <span class="label">Earnings Thesis</span>
-<span class="value">—</span>
+<span class="value" id="thesis">—</span>
 </div>
 
 </div>
 
 <div class="card hero">
 <h3>🔎 PRV Research Process</h3>
-<p>
+<p class="process">
 SCAN → QUALIFY → RANK → ACCUMULATE → MONITOR → REVIEW
 </p>
 </div>
 
 <div class="footer">
 PRV Fund House • Research Intelligence System<br>
-Version 1.0
+Version 2.0
 </div>
 
 </div>
+
+<script>
+
+async function loadData(){
+
+try{
+
+const response = await fetch("./data.json");
+const data = await response.json();
+
+const r = data.research_dashboard || {};
+const i = data.institutional_activity || {};
+const s = data.sector_rotation || {};
+const a = data.research_accuracy || {};
+
+document.getElementById("roce").textContent = r.roce_roe || "Track";
+document.getElementById("sales").textContent = r.sales_growth || "Track";
+document.getElementById("profit").textContent = r.profit_growth || "Track";
+document.getElementById("cash").textContent = r.cash_generation || "Track";
+document.getElementById("capex").textContent = r.capex_cwip || "Track";
+document.getElementById("orders").textContent = r.order_book || "Track";
+
+document.getElementById("fii").textContent = i.fii_holding || "Monitor";
+document.getElementById("dii").textContent = i.dii_holding || "Monitor";
+document.getElementById("mf").textContent = i.mf_holding || "Monitor";
+document.getElementById("promoter").textContent = i.promoter_holding || "Monitor";
+
+document.getElementById("rs").textContent = s.relative_strength ?? "—";
+document.getElementById("earnings").textContent = s.earnings_growth ?? "—";
+document.getElementById("flow").textContent = s.institutional_flow ?? "—";
+document.getElementById("breadth").textContent = s.sector_breadth ?? "—";
+document.getElementById("price").textContent = s.price_volume ?? "—";
+document.getElementById("valuation").textContent = s.valuation ?? "—";
+
+document.getElementById("direction").textContent = a.direction_correct ?? "—";
+document.getElementById("target").textContent = a.target_achieved ?? "—";
+document.getElementById("stop").textContent = a.stop_invalidation ?? "—";
+document.getElementById("thesis").textContent = a.earnings_thesis ?? "—";
+
+}catch(error){
+
+console.log("Data loading error:",error);
+
+}
+
+}
+
+loadData();
+
+</script>
 
 </body>
 </html>
