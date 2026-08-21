@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>PRV Fund House</title>
 
 <style>
@@ -10,30 +10,30 @@
 
 body{
 margin:0;
-font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
 background:#080b12;
 color:#f5f7fa;
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif
 }
 
 .app{
 max-width:650px;
 margin:auto;
-padding:16px;
+padding:16px
 }
 
 .header{
-padding:18px 4px 12px;
+padding:18px 4px 12px
 }
 
 .logo{
 font-size:28px;
-font-weight:800;
+font-weight:800
 }
 
 .sub{
 color:#8d96a8;
-margin-top:5px;
 font-size:14px;
+margin-top:5px
 }
 
 .card{
@@ -42,49 +42,54 @@ border:1px solid #252d3a;
 border-radius:18px;
 padding:18px;
 margin:12px 0;
-box-shadow:0 8px 25px rgba(0,0,0,.22);
+box-shadow:0 8px 25px rgba(0,0,0,.22)
 }
 
 .hero{
-background:linear-gradient(145deg,#17233a,#0f141e);
+background:linear-gradient(145deg,#17233a,#0f141e)
 }
 
 .hero h1{
 font-size:30px;
-margin:0 0 8px;
+margin:0 0 8px
 }
 
 .hero p{
 color:#aeb7c6;
-line-height:1.6;
-margin-bottom:0;
+line-height:1.6
 }
 
 .section{
 font-size:20px;
 font-weight:750;
-margin:25px 0 12px;
+margin:25px 0 12px
 }
 
 .grid{
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:10px;
+gap:10px
 }
 
 .fund{
 min-height:145px;
+cursor:pointer;
+transition:.15s
+}
+
+.fund:active{
+transform:scale(.98)
 }
 
 .fund h3{
 margin:0 0 8px;
-font-size:16px;
+font-size:16px
 }
 
 .fund p{
 color:#9ca6b7;
 font-size:13px;
-line-height:1.45;
+line-height:1.45
 }
 
 .badge{
@@ -95,7 +100,7 @@ background:#182a20;
 color:#62d889;
 font-size:10px;
 font-weight:700;
-margin-bottom:9px;
+margin-bottom:9px
 }
 
 .metric{
@@ -103,48 +108,72 @@ display:flex;
 justify-content:space-between;
 gap:15px;
 padding:11px 0;
-border-bottom:1px solid #222a35;
+border-bottom:1px solid #222a35
 }
 
 .metric:last-child{
-border-bottom:0;
+border-bottom:0
 }
 
 .label{
-color:#9ca6b7;
+color:#9ca6b7
 }
 
 .value{
 font-weight:700;
-text-align:right;
+text-align:right
 }
 
 .green{color:#62d889}
 .yellow{color:#e9c46a}
 .red{color:#ff7272}
+.muted{color:#8d96a8}
 
 .score{
-font-size:30px;
-font-weight:800;
+font-size:34px;
+font-weight:800
 }
 
-.process{
-font-weight:700;
-letter-spacing:.5px;
-line-height:1.8;
+.back{
+display:inline-block;
+padding:10px 14px;
+border:1px solid #293241;
+border-radius:12px;
+background:#151c28;
+color:#fff;
+cursor:pointer;
+margin-bottom:12px
+}
+
+.detail-title{
+font-size:26px;
+font-weight:800;
+margin:5px 0
+}
+
+.detail-sub{
+color:#9ca6b7;
+line-height:1.6
+}
+
+.hidden{
+display:none!important
 }
 
 .footer{
 text-align:center;
 color:#697386;
 font-size:12px;
-padding:25px 0;
+padding:25px 0
+}
+
+.process{
+font-weight:700;
+line-height:2
 }
 
 @media(max-width:430px){
-.grid{
-grid-template-columns:1fr;
-}
+.grid{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -153,12 +182,18 @@ grid-template-columns:1fr;
 
 <div class="app">
 
+<!-- HEADER -->
 <div class="header">
 <div class="logo">📗 PRV FUND HOUSE</div>
 <div class="sub">
 Research • Investment • Portfolio Intelligence
 </div>
 </div>
+
+
+<!-- ================= HOME ================= -->
+
+<div id="home">
 
 <div class="card hero">
 <h1>PRV Dashboard</h1>
@@ -168,59 +203,63 @@ specialized PRV strategy funds.
 </p>
 </div>
 
+
 <div class="section">🎯 PRV Strategy Funds</div>
 
 <div class="grid">
 
-<div class="card fund">
+<div class="card fund" onclick="openFund('compounder')">
 <span class="badge">COMPOUNDER</span>
 <h3>PRV Compounder Discovery</h3>
 <p>3–5 year structural growth and compounding opportunities.</p>
 </div>
 
-<div class="card fund">
+<div class="card fund" onclick="openFund('institutional')">
 <span class="badge">INSTITUTIONAL</span>
 <h3>PRV Institutional Conviction</h3>
 <p>Institutional ownership + fundamentals + future scale-up.</p>
 </div>
 
-<div class="card fund">
+<div class="card fund" onclick="openFund('rotation')">
 <span class="badge">ROTATION</span>
 <h3>PRV Sector Rotation</h3>
 <p>Early sector rotation using 6 institutional signals.</p>
 </div>
 
-<div class="card fund">
+<div class="card fund" onclick="openFund('swing')">
 <span class="badge">SWING</span>
 <h3>PRV Swing Core</h3>
 <p>1–6 week fundamental + momentum framework.</p>
 </div>
 
-<div class="card fund">
+<div class="card fund" onclick="openFund('value')">
 <span class="badge">VALUE</span>
 <h3>PRV Value Opportunity</h3>
 <p>Valuation reset + business quality + margin of safety.</p>
 </div>
 
-<div class="card fund">
+<div class="card fund" onclick="openFund('growth')">
 <span class="badge">GROWTH</span>
 <h3>PRV Growth & Scale</h3>
 <p>Sales, profit, ROCE, capex and capacity expansion.</p>
 </div>
 
-<div class="card fund">
+<div class="card fund" onclick="openFund('turnaround')">
 <span class="badge">TURNAROUND</span>
 <h3>PRV Turnaround</h3>
 <p>Earnings recovery, balance-sheet improvement and re-rating.</p>
 </div>
 
-<div class="card fund">
+<div class="card fund" onclick="openFund('momentum')">
 <span class="badge">MOMENTUM</span>
 <h3>PRV Momentum</h3>
 <p>Price strength, volume, breakout and institutional activity.</p>
 </div>
 
 </div>
+
+
+<!-- RESEARCH -->
 
 <div class="section">📊 Research Dashboard</div>
 
@@ -258,6 +297,9 @@ specialized PRV strategy funds.
 
 </div>
 
+
+<!-- INSTITUTIONAL -->
+
 <div class="section">🏦 Institutional Activity</div>
 
 <div class="card">
@@ -284,154 +326,437 @@ specialized PRV strategy funds.
 
 </div>
 
+
+<!-- ROTATION -->
+
 <div class="section">🔄 Sector Rotation — 6 Signals</div>
 
 <div class="card">
 
 <div class="metric">
-<span class="label">Relative Strength</span>
+<span>Relative Strength</span>
 <span class="value" id="rs">—</span>
 </div>
 
 <div class="metric">
-<span class="label">Earnings Growth</span>
+<span>Earnings Growth</span>
 <span class="value" id="earnings">—</span>
 </div>
 
 <div class="metric">
-<span class="label">Institutional Flow</span>
+<span>Institutional Flow</span>
 <span class="value" id="flow">—</span>
 </div>
 
 <div class="metric">
-<span class="label">Sector Breadth</span>
+<span>Sector Breadth</span>
 <span class="value" id="breadth">—</span>
 </div>
 
 <div class="metric">
-<span class="label">Price / Volume</span>
+<span>Price / Volume</span>
 <span class="value" id="price">—</span>
 </div>
 
 <div class="metric">
-<span class="label">Valuation</span>
+<span>Valuation</span>
 <span class="value" id="valuation">—</span>
 </div>
 
 <div class="metric">
-<span class="label">Rotation Rule</span>
+<span>Qualification Rule</span>
 <span class="value yellow">Minimum 4 / 6</span>
 </div>
 
 </div>
+
+
+<!-- RISK -->
 
 <div class="section">⚠️ Risk & Sell Discipline</div>
 
 <div class="card">
 
 <div class="metric">
-<span class="label">Thesis Broken</span>
+<span>Thesis Broken</span>
 <span class="value red">Exit Review</span>
 </div>
 
 <div class="metric">
-<span class="label">Earnings Failure</span>
+<span>Earnings Failure</span>
 <span class="value red">Exit Review</span>
 </div>
 
 <div class="metric">
-<span class="label">Valuation Excess</span>
+<span>Valuation Excess</span>
 <span class="value yellow">Reduce</span>
 </div>
 
 <div class="metric">
-<span class="label">Technical Invalidation</span>
+<span>Technical Invalidation</span>
 <span class="value yellow">Review</span>
 </div>
 
 </div>
+
+
+<!-- ACCURACY -->
 
 <div class="section">🎯 Research Accuracy</div>
 
 <div class="card">
 
 <div class="metric">
-<span class="label">Direction Correct</span>
+<span>Direction Correct</span>
 <span class="value" id="direction">—</span>
 </div>
 
 <div class="metric">
-<span class="label">Target Achieved</span>
+<span>Target Achieved</span>
 <span class="value" id="target">—</span>
 </div>
 
 <div class="metric">
-<span class="label">Stop / Invalidation</span>
+<span>Stop / Invalidation</span>
 <span class="value" id="stop">—</span>
 </div>
 
 <div class="metric">
-<span class="label">Earnings Thesis</span>
+<span>Earnings Thesis</span>
 <span class="value" id="thesis">—</span>
 </div>
 
 </div>
 
+
 <div class="card hero">
 <h3>🔎 PRV Research Process</h3>
+
 <p class="process">
-SCAN → QUALIFY → RANK → ACCUMULATE → MONITOR → REVIEW
+SCAN → QUALIFY → RANK<br>
+→ ACCUMULATE → MONITOR → REVIEW
 </p>
+
 </div>
+
+</div>
+
+
+<!-- ================= DETAIL ================= -->
+
+<div id="detail" class="hidden">
+
+<button class="back" onclick="goHome()">← Back to Dashboard</button>
+
+<div class="card hero">
+
+<div class="detail-title" id="detailTitle"></div>
+
+<div class="detail-sub" id="detailDescription"></div>
+
+</div>
+
+
+<div class="section">🎯 PRV Framework</div>
+
+<div class="card" id="detailFramework"></div>
+
+
+<div class="section">📊 Stock Evaluation</div>
+
+<div class="card">
+
+<div class="metric">
+<span>Fundamental Quality</span>
+<span class="value">Pending</span>
+</div>
+
+<div class="metric">
+<span>Earnings Growth</span>
+<span class="value">Pending</span>
+</div>
+
+<div class="metric">
+<span>ROCE / ROE</span>
+<span class="value">Pending</span>
+</div>
+
+<div class="metric">
+<span>Cash Generation</span>
+<span class="value">Pending</span>
+</div>
+
+<div class="metric">
+<span>Institutional Trend</span>
+<span class="value">Pending</span>
+</div>
+
+<div class="metric">
+<span>Valuation</span>
+<span class="value">Pending</span>
+</div>
+
+</div>
+
+
+<div class="section">⚠️ Risk Control</div>
+
+<div class="card">
+
+<div class="metric">
+<span>Thesis Status</span>
+<span class="value yellow">Review</span>
+</div>
+
+<div class="metric">
+<span>Sell Discipline</span>
+<span class="value yellow">Active</span>
+</div>
+
+<div class="metric">
+<span>Research Accuracy</span>
+<span class="value muted">Tracking</span>
+</div>
+
+</div>
+
+
+<div class="card hero">
+
+<h3>🚧 Research Engine</h3>
+
+<p>
+Stock-level scoring and live market data will be connected
+in the next development phase.
+</p>
+
+</div>
+
+</div>
+
 
 <div class="footer">
 PRV Fund House • Research Intelligence System<br>
-Version 2.0
+Version 3.0
 </div>
 
 </div>
+
 
 <script>
+
+const funds={
+
+compounder:{
+title:"PRV Compounder Discovery",
+description:"3–5 year structural growth and compounding opportunities.",
+framework:[
+"Niche / structural market",
+"Scalability",
+"Earnings growth",
+"ROCE / ROE improvement",
+"Capex / CWIP",
+"Order visibility",
+"Cash generation",
+"Management quality"
+]
+},
+
+institutional:{
+title:"PRV Institutional Conviction",
+description:"Institutional conviction + fundamentals + future scale-up.",
+framework:[
+"FII / DII / MF trend",
+"Promoter seriousness",
+"Earnings growth",
+"ROCE / ROE",
+"Future capacity",
+"Valuation",
+"Price action",
+"Institutional accumulation"
+]
+},
+
+rotation:{
+title:"PRV Sector Rotation",
+description:"Early sector rotation using the locked 6-signal framework.",
+framework:[
+"Relative Strength",
+"Earnings growth / revisions",
+"FII / DII / MF flow",
+"Sector breadth",
+"Price / volume accumulation",
+"Valuation",
+"Minimum 4 / 6 = qualification",
+"5 / 6 = strong rotation",
+"6 / 6 = institutional rotation"
+]
+},
+
+swing:{
+title:"PRV Swing Core",
+description:"1–6 week fundamental + momentum swing framework.",
+framework:[
+"Fundamental quality",
+"Price momentum",
+"Volume / delivery",
+"Breakout proximity",
+"Support / resistance",
+"Earnings catalyst",
+"Risk / reward",
+"Strict invalidation"
+]
+},
+
+value:{
+title:"PRV Value Opportunity",
+description:"Valuation reset + business quality + margin of safety.",
+framework:[
+"Valuation reset",
+"Earnings intact",
+"Business quality",
+"Balance sheet",
+"Cash flow",
+"ROCE",
+"Margin of safety",
+"Re-rating potential"
+]
+},
+
+growth:{
+title:"PRV Growth & Scale",
+description:"Growth driven by earnings, capacity and operating leverage.",
+framework:[
+"Sales growth",
+"Profit growth",
+"EBITDA margin",
+"ROCE improvement",
+"Capex",
+"CWIP",
+"Capacity expansion",
+"Order book"
+]
+},
+
+turnaround:{
+title:"PRV Turnaround",
+description:"Earnings recovery + balance-sheet improvement + re-rating.",
+framework:[
+"Revenue recovery",
+"Margin recovery",
+"Debt reduction",
+"Cash-flow improvement",
+"Capacity utilisation",
+"Management execution",
+"Order recovery",
+"Valuation re-rating"
+]
+},
+
+momentum:{
+title:"PRV Momentum",
+description:"Price strength + volume + breakout + institutional activity.",
+framework:[
+"Relative strength",
+"Price momentum",
+"Volume expansion",
+"Delivery trend",
+"Breakout",
+"FII / DII activity",
+"Earnings catalyst",
+"Technical invalidation"
+]
+}
+
+};
+
+
+function openFund(id){
+
+const fund=funds[id];
+
+if(!fund)return;
+
+document.getElementById("home").classList.add("hidden");
+document.getElementById("detail").classList.remove("hidden");
+
+document.getElementById("detailTitle").textContent=fund.title;
+
+document.getElementById("detailDescription").textContent=fund.description;
+
+let html="";
+
+fund.framework.forEach((item,index)=>{
+
+html+=`
+<div class="metric">
+<span>${index+1}. ${item}</span>
+<span class="value green">✓</span>
+</div>
+`;
+
+});
+
+document.getElementById("detailFramework").innerHTML=html;
+
+window.scrollTo(0,0);
+
+}
+
+
+function goHome(){
+
+document.getElementById("detail").classList.add("hidden");
+
+document.getElementById("home").classList.remove("hidden");
+
+window.scrollTo(0,0);
+
+}
+
 
 async function loadData(){
 
 try{
 
-const response = await fetch("./data.json");
-const data = await response.json();
+const response=await fetch("./data.json?cache="+Date.now());
 
-const r = data.research_dashboard || {};
-const i = data.institutional_activity || {};
-const s = data.sector_rotation || {};
-const a = data.research_accuracy || {};
+if(!response.ok)throw new Error("data.json not found");
 
-document.getElementById("roce").textContent = r.roce_roe || "Track";
-document.getElementById("sales").textContent = r.sales_growth || "Track";
-document.getElementById("profit").textContent = r.profit_growth || "Track";
-document.getElementById("cash").textContent = r.cash_generation || "Track";
-document.getElementById("capex").textContent = r.capex_cwip || "Track";
-document.getElementById("orders").textContent = r.order_book || "Track";
+const data=await response.json();
 
-document.getElementById("fii").textContent = i.fii_holding || "Monitor";
-document.getElementById("dii").textContent = i.dii_holding || "Monitor";
-document.getElementById("mf").textContent = i.mf_holding || "Monitor";
-document.getElementById("promoter").textContent = i.promoter_holding || "Monitor";
+const r=data.research_dashboard||{};
+const i=data.institutional_activity||{};
+const s=data.sector_rotation||{};
+const a=data.research_accuracy||{};
 
-document.getElementById("rs").textContent = s.relative_strength ?? "—";
-document.getElementById("earnings").textContent = s.earnings_growth ?? "—";
-document.getElementById("flow").textContent = s.institutional_flow ?? "—";
-document.getElementById("breadth").textContent = s.sector_breadth ?? "—";
-document.getElementById("price").textContent = s.price_volume ?? "—";
-document.getElementById("valuation").textContent = s.valuation ?? "—";
+document.getElementById("roce").textContent=r.roce_roe||"Track";
+document.getElementById("sales").textContent=r.sales_growth||"Track";
+document.getElementById("profit").textContent=r.profit_growth||"Track";
+document.getElementById("cash").textContent=r.cash_generation||"Track";
+document.getElementById("capex").textContent=r.capex_cwip||"Track";
+document.getElementById("orders").textContent=r.order_book||"Track";
 
-document.getElementById("direction").textContent = a.direction_correct ?? "—";
-document.getElementById("target").textContent = a.target_achieved ?? "—";
-document.getElementById("stop").textContent = a.stop_invalidation ?? "—";
-document.getElementById("thesis").textContent = a.earnings_thesis ?? "—";
+document.getElementById("fii").textContent=i.fii_holding||"Monitor";
+document.getElementById("dii").textContent=i.dii_holding||"Monitor";
+document.getElementById("mf").textContent=i.mf_holding||"Monitor";
+document.getElementById("promoter").textContent=i.promoter_holding||"Monitor";
+
+document.getElementById("rs").textContent=s.relative_strength??"—";
+document.getElementById("earnings").textContent=s.earnings_growth??"—";
+document.getElementById("flow").textContent=s.institutional_flow??"—";
+document.getElementById("breadth").textContent=s.sector_breadth??"—";
+document.getElementById("price").textContent=s.price_volume??"—";
+document.getElementById("valuation").textContent=s.valuation??"—";
+
+document.getElementById("direction").textContent=a.direction_correct??"—";
+document.getElementById("target").textContent=a.target_achieved??"—";
+document.getElementById("stop").textContent=a.stop_invalidation??"—";
+document.getElementById("thesis").textContent=a.earnings_thesis??"—";
 
 }catch(error){
 
-console.log("Data loading error:",error);
+console.log("PRV data loading error:",error);
 
 }
 
