@@ -1,119 +1,55 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#070a11">
-<title>PRV Fund House — Advanced Research Terminal</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>PRV FUND HOUSE</title>
 
 <style>
-:root{
---bg:#070a11;
---panel:#0e1420;
---panel2:#121a28;
---line:#243047;
---text:#f4f7fb;
---muted:#93a0b5;
---green:#49e28a;
---amber:#ffc857;
---red:#ff6677;
---blue:#62a8ff;
---violet:#a98bff;
---shadow:0 16px 45px #0007
-}
-
 *{box-sizing:border-box}
-
-html{scroll-behavior:smooth}
 
 body{
 margin:0;
-background:radial-gradient(1000px 500px at 50% -10%,#17253f 0%,var(--bg) 55%);
-color:var(--text);
-font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif
+font-family:Arial,sans-serif;
+background:#070b12;
+color:#fff
 }
 
-button,input,select{font:inherit}
-
-button{cursor:pointer}
-
-.app{
-max-width:1180px;
+.container{
+max-width:1100px;
 margin:auto;
-padding:18px
+padding:16px
 }
 
-.top{
+.header{
+padding:18px 0;
+border-bottom:1px solid #243047;
 position:sticky;
 top:0;
-z-index:20;
-background:#070a11dd;
-backdrop-filter:blur(18px);
-border-bottom:1px solid #172238;
-padding:12px 0
+background:#070b12ee;
+z-index:10
 }
 
-.nav{
-display:flex;
-gap:10px;
-align-items:center;
-justify-content:space-between
+.header h1{
+margin:0;
+font-size:24px
 }
 
-.brand{
-font-weight:900;
-font-size:20px;
-letter-spacing:.3px
-}
-
-.brand span{color:var(--blue)}
-
-.actions{
-display:flex;
-gap:8px
-}
-
-.btn{
-border:1px solid var(--line);
-background:var(--panel);
-color:var(--text);
-padding:10px 13px;
-border-radius:12px
-}
-
-.btn.primary{
-background:#18345d;
-border-color:#2e68ad
-}
-
-.btn.green{
-background:#123b29;
-border-color:#236b49
+.header span{
+color:#62a8ff
 }
 
 .hero{
-padding:26px 4px 18px
+padding:30px 0 20px
 }
 
-.eyebrow{
-color:var(--blue);
-font-size:12px;
-font-weight:800;
-letter-spacing:1.4px;
-text-transform:uppercase
+.hero h2{
+font-size:38px;
+margin:5px 0 12px
 }
 
-.hero h1{
-font-size:clamp(30px,6vw,54px);
-line-height:1.02;
-margin:8px 0
-}
-
-.hero p{
-color:var(--muted);
-max-width:760px;
-font-size:16px;
-line-height:1.6
+.muted{
+color:#91a0b6
 }
 
 .grid{
@@ -126,97 +62,20 @@ grid-template-columns:repeat(4,1fr)
 }
 
 .card{
-background:linear-gradient(145deg,#111927,#0b101a);
-border:1px solid var(--line);
-border-radius:20px;
-box-shadow:var(--shadow)
+background:#101722;
+border:1px solid #26344b;
+border-radius:16px;
+padding:17px
 }
 
-.kpi{
-padding:18px
-}
-
-.kpi .n{
+.kpi-number{
 font-size:28px;
-font-weight:900;
-margin:4px 0
+font-weight:bold;
+margin:7px 0
 }
 
-.muted{color:var(--muted)}
-
-.section{margin-top:22px}
-
-.section h2{
-font-size:22px;
-margin:0 0 12px
-}
-
-.gate{
+.gates{
 grid-template-columns:repeat(6,1fr)
-}
-
-.gate .card{
-padding:14px
-}
-
-.gate b{
-font-size:20px
-}
-
-.pill{
-display:inline-flex;
-align-items:center;
-gap:6px;
-border-radius:999px;
-padding:6px 9px;
-font-size:11px;
-font-weight:800;
-background:#192235;
-color:#cdd7e8;
-border:1px solid #2a3851
-}
-
-.pill.good{
-color:var(--green);
-background:#0e2a1d;
-border-color:#245b40
-}
-
-.pill.warn{
-color:var(--amber);
-background:#2c2410;
-border-color:#66511d
-}
-
-.pill.bad{
-color:var(--red);
-background:#32151c;
-border-color:#6d2634
-}
-
-.toolbar{
-display:flex;
-gap:9px;
-flex-wrap:wrap;
-margin-bottom:12px
-}
-
-.search{
-flex:1;
-min-width:210px;
-background:var(--panel);
-border:1px solid var(--line);
-border-radius:12px;
-color:var(--text);
-padding:12px
-}
-
-.select{
-background:var(--panel);
-border:1px solid var(--line);
-border-radius:12px;
-color:var(--text);
-padding:12px
 }
 
 .stocks{
@@ -224,374 +83,307 @@ grid-template-columns:repeat(2,1fr)
 }
 
 .stock{
-padding:18px;
+cursor:pointer;
 transition:.2s
 }
 
 .stock:hover{
-transform:translateY(-2px);
-border-color:#3b5479
+transform:translateY(-3px);
+border-color:#4b79b7
 }
 
-.stockhead{
+.stock-head{
 display:flex;
 justify-content:space-between;
-gap:12px
-}
-
-.stock h3{
-margin:0;
-font-size:20px
+gap:10px
 }
 
 .ticker{
-color:var(--blue);
-font-weight:800;
+color:#62a8ff;
+font-weight:bold;
 font-size:12px
 }
 
 .score{
-font-size:25px;
-font-weight:900
+font-size:27px;
+font-weight:bold
+}
+
+.pill{
+display:inline-block;
+padding:5px 9px;
+border-radius:20px;
+font-size:11px;
+background:#123d29;
+color:#65e69a
 }
 
 .meter{
 height:7px;
-background:#1b2638;
-border-radius:99px;
-overflow:hidden;
-margin:10px 0
+background:#202c3e;
+border-radius:20px;
+margin:12px 0;
+overflow:hidden
 }
 
-.meter i{
+.meter span{
 display:block;
 height:100%;
-background:linear-gradient(
-90deg,
-var(--red),
-var(--amber),
-var(--green)
-);
-width:var(--w)
+background:linear-gradient(90deg,#ff6677,#ffc857,#49e28a)
 }
 
-.mini{
+.metrics{
 display:grid;
 grid-template-columns:repeat(3,1fr);
-gap:8px;
-margin-top:12px
+gap:8px
 }
 
-.mini div{
-background:#0b111b;
-border:1px solid #1c293e;
-border-radius:11px;
+.metric{
+background:#0b111a;
+border:1px solid #1d2a3e;
+border-radius:10px;
 padding:9px
 }
 
-.mini b{
+.metric small{
+color:#91a0b6
+}
+
+.metric b{
 display:block;
-font-size:13px
+margin-top:4px
 }
 
-.mini small{
-color:var(--muted)
+button{
+background:#18345d;
+color:white;
+border:1px solid #2e68ad;
+border-radius:10px;
+padding:10px 14px;
+cursor:pointer
 }
 
-.stock .row{
+button:hover{
+background:#234b80
+}
+
+.toolbar{
 display:flex;
-justify-content:space-between;
-gap:8px;
-margin-top:12px
+gap:10px;
+margin-bottom:14px
 }
 
-.tablewrap{
-overflow:auto
+input,select{
+background:#101722;
+color:white;
+border:1px solid #26344b;
+border-radius:10px;
+padding:11px
 }
 
-.table{
+input{
+flex:1
+}
+
+table{
 width:100%;
-border-collapse:collapse;
-min-width:760px
+border-collapse:collapse
 }
 
-.table th,
-.table td{
+th,td{
 padding:11px;
-border-bottom:1px solid #1b2637;
+border-bottom:1px solid #243047;
 text-align:left
 }
 
-.table th{
-color:#9eabc0;
-font-size:12px;
-text-transform:uppercase;
-letter-spacing:.6px
-}
-
-.positive{color:var(--green)}
-
-.negative{color:var(--red)}
-
-.tabs{
-display:flex;
-gap:7px;
-overflow:auto;
-margin-bottom:12px
-}
-
-.tab{
-white-space:nowrap
-}
-
-.tab.active{
-background:#19345c;
-border-color:#2c67aa
-}
-
-.detail{
-padding:20px
-}
-
-.detailgrid{
-grid-template-columns:repeat(4,1fr)
-}
-
-.detail h3{
-margin:0 0 5px
-}
-
-.detailbox{
-padding:13px;
-background:#0b111b;
-border:1px solid #1d2a40;
-border-radius:13px
-}
-
-.detailbox b{
-font-size:18px
-}
-
-.list{
-margin:0;
-padding-left:20px;
-color:#c9d2df;
-line-height:1.7
-}
-
-.footer{
-padding:30px 4px;
-color:#718097;
-text-align:center;
+th{
+color:#91a0b6;
 font-size:12px
 }
 
-.toast{
-position:fixed;
-left:50%;
-bottom:20px;
-transform:translateX(-50%);
-background:#101827;
-border:1px solid #33435e;
-padding:11px 15px;
+.good{
+color:#49e28a
+}
+
+.warn{
+color:#ffc857
+}
+
+.detail{
+margin-top:20px
+}
+
+.detail-grid{
+grid-template-columns:repeat(4,1fr)
+}
+
+.check{
+padding:10px;
+background:#0d2117;
+border:1px solid #245b40;
+border-radius:9px;
+margin:6px 0;
+color:#9af0ba
+}
+
+.risk{
+padding:13px;
+margin-top:15px;
+background:#302510;
+border:1px solid #66511d;
 border-radius:12px;
-display:none;
-z-index:50
+color:#ffd77b
 }
 
-.empty{
-padding:30px;
-text-align:center;
-color:var(--muted)
+.next{
+padding:13px;
+margin-top:12px;
+background:#111d31;
+border:1px solid #29466f;
+border-radius:12px;
+color:#b8d7ff
 }
 
-@media(max-width:850px){
-
-.kpis{
-grid-template-columns:repeat(2,1fr)
+@media(max-width:800px){
+.kpis{grid-template-columns:repeat(2,1fr)}
+.gates{grid-template-columns:repeat(3,1fr)}
+.stocks{grid-template-columns:1fr}
+.detail-grid{grid-template-columns:repeat(2,1fr)}
 }
 
-.gate{
-grid-template-columns:repeat(3,1fr)
-}
-
-.stocks{
-grid-template-columns:1fr
-}
-
-.detailgrid{
-grid-template-columns:repeat(2,1fr)
-}
-
-}
-
-@media(max-width:520px){
-
-.app{
-padding:12px
-}
-
-.kpis{
-grid-template-columns:1fr 1fr
-}
-
-.gate{
-grid-template-columns:1fr 1fr
-}
-
-.detailgrid{
-grid-template-columns:1fr
-}
-
-.nav .actions .hideMob{
-display:none
-}
-
-.hero h1{
-font-size:34px
-}
-
+@media(max-width:500px){
+.gates{grid-template-columns:repeat(2,1fr)}
+.detail-grid{grid-template-columns:1fr}
+.hero h2{font-size:32px}
 }
 </style>
 </head>
 
 <body>
 
-<div class="top">
-
-<div class="app nav">
-
-<div class="brand">
-📗 PRV <span>FUND HOUSE</span>
+<div class="header">
+<div class="container">
+<h1>📗 PRV <span>FUND HOUSE</span></h1>
+</div>
 </div>
 
-<div class="actions">
-
-<button class="btn hideMob"
-onclick="resetFilters()">
-Reset
-</button>
-
-<button class="btn primary"
-onclick="exportResearch()">
-Export
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-
-<main class="app">
-
+<div class="container">
 
 <section class="hero">
 
-<div class="eyebrow">
-Research • Investment • Portfolio Intelligence
+<div class="ticker">
+ADVANCED RESEARCH TERMINAL
 </div>
 
-<h1>
-PRV Advanced Research Terminal
-</h1>
+<h2>PRV Stock Research</h2>
 
-<p>
-One-screen stock research system covering fundamentals,
-earnings momentum, institutional activity, sector rotation,
-valuation, risk discipline and portfolio construction.
-This dashboard is a research framework — not an automatic
-buy signal.
+<p class="muted">
+Fundamental + Growth + Quality + Institutional +
+Valuation + Risk + Portfolio framework.
 </p>
 
 </section>
 
 
-<section class="grid kpis" id="kpis"></section>
+<section class="grid kpis">
 
+<div class="card">
+<div class="muted">Stocks</div>
+<div class="kpi-number">5</div>
+<div class="muted">Compounder universe</div>
+</div>
 
-<section class="section">
+<div class="card">
+<div class="muted">Average PRV Score</div>
+<div class="kpi-number">89</div>
+<div class="muted">Research ranking</div>
+</div>
 
-<h2>
-🎯 Sector Rotation Gate
-</h2>
+<div class="card">
+<div class="muted">A Grade</div>
+<div class="kpi-number">5</div>
+<div class="muted">Quality candidates</div>
+</div>
 
-<div class="grid gate" id="gate"></div>
+<div class="card">
+<div class="muted">Action</div>
+<div class="kpi-number">WATCH</div>
+<div class="muted">Not automatic BUY</div>
+</div>
 
 </section>
 
 
-<section class="section">
+<section>
+
+<h2>🎯 Sector Rotation Gate</h2>
+
+<div class="grid gates">
+
+<div class="card">Relative Strength<br><b>Pending</b></div>
+<div class="card">Earnings Growth<br><b>Pending</b></div>
+<div class="card">Institutional Flow<br><b>Pending</b></div>
+<div class="card">Sector Breadth<br><b>Pending</b></div>
+<div class="card">Price / Volume<br><b>Pending</b></div>
+<div class="card">Valuation<br><b>Pending</b></div>
+
+</div>
+
+</section>
+
+
+<section>
+
+<h2>🔎 Stock Search</h2>
 
 <div class="toolbar">
 
 <input
 id="search"
-class="search"
-placeholder="Search stock / ticker / theme…">
+placeholder="Search stock..."
+oninput="render()">
 
-<select id="fund" class="select">
+<select id="grade" onchange="render()">
 
-<option value="all">
-All funds
-</option>
-
-</select>
-
-<select id="grade" class="select">
-
-<option value="all">
-All grades
-</option>
-
-<option value="A">
-A
-</option>
-
-<option value="B">
-B
-</option>
-
-<option value="C">
-C
-</option>
+<option value="all">All Grades</option>
+<option value="A">A</option>
+<option value="B">B</option>
+<option value="C">C</option>
 
 </select>
 
 </div>
 
+</section>
 
-<div class="tabs" id="tabs"></div>
 
-<div class="grid stocks" id="stocks"></div>
+<section>
+
+<h2>📈 PRV Compounder Universe</h2>
+
+<div id="stocks" class="grid stocks"></div>
 
 </section>
 
 
-<section class="section">
+<section>
 
-<h2>
-📊 Research Matrix
-</h2>
+<h2>📊 Research Matrix</h2>
 
-<div class="card tablewrap">
+<div class="card">
 
-<table class="table">
+<table>
 
 <thead>
 
 <tr>
-
 <th>Stock</th>
-<th>PRV Score</th>
+<th>Score</th>
 <th>Growth</th>
 <th>Quality</th>
-<th>Institutions</th>
+<th>Institution</th>
 <th>Valuation</th>
 <th>Risk</th>
-<th>Status</th>
-
 </tr>
 
 </thead>
@@ -605,113 +397,86 @@ C
 </section>
 
 
-<section class="section">
+<section id="detail" class="card detail">
 
-<div class="card detail" id="detail">
-
-<h2>
-🔎 Select a stock
-</h2>
+<h2>🔎 Select a Stock</h2>
 
 <p class="muted">
-Tap any stock card to open the full research panel.
+Stock card पर tap करके detailed research खोलें।
 </p>
 
-</div>
-
 </section>
 
 
-<section class="section">
+<section>
 
-<h2>
-🧠 PRV Decision Engine
-</h2>
+<h2>🧠 PRV Decision Engine</h2>
 
-<div class="card detail">
+<div class="grid detail-grid">
 
-<div class="grid detailgrid" id="engine"></div>
+<div class="card">
+<b>Thesis</b>
+<p class="muted">Structural market + scalability</p>
+</div>
 
-<ul class="list">
+<div class="card">
+<b>Quality</b>
+<p class="muted">ROCE / ROE + cash flow</p>
+</div>
 
-<li>
-Minimum thesis: niche/structural market +
-scalability + earnings growth.
-</li>
+<div class="card">
+<b>Growth</b>
+<p class="muted">Earnings + Capex + CWIP</p>
+</div>
 
-<li>
-Quality confirmation: ROCE/ROE trajectory +
-cash generation + balance sheet.
-</li>
+<div class="card">
+<b>Institutional</b>
+<p class="muted">FII / DII / MF + promoter</p>
+</div>
 
-<li>
-Growth confirmation: capex/CWIP +
-order visibility + capacity expansion.
-</li>
+<div class="card">
+<b>Valuation</b>
+<p class="muted">Growth-adjusted valuation</p>
+</div>
 
-<li>
-Institutional layer: FII/DII/MF trend +
-promoter seriousness.
-</li>
+<div class="card">
+<b>Risk</b>
+<p class="muted">Thesis break + earnings</p>
+</div>
 
-<li>
-Valuation layer: growth-adjusted valuation;
-avoid paying any price.
-</li>
+<div class="card">
+<b>Portfolio</b>
+<p class="muted">Position size + concentration</p>
+</div>
 
-<li>
-Risk layer: thesis break, earnings miss,
-leverage/cash-flow deterioration and technical invalidation.
-</li>
-
-<li>
-Portfolio layer: position size, correlation,
-sector concentration and sell discipline.
-</li>
-
-</ul>
+<div class="card">
+<b>Sell Discipline</b>
+<p class="muted">Invalidation based exit</p>
+</div>
 
 </div>
 
 </section>
 
-
-<div class="footer">
-
-PRV Fund House V5 • Advanced single-file dashboard<br>
-
-Research framework • Not an automatic investment recommendation
-
 </div>
-
-
-</main>
-
-
-<div class="toast" id="toast"></div>
 
 
 <script>
 
-const STOCKS = [
+const stocks=[
 
 {
 name:"MAN Industries",
 ticker:"MANINDS",
-fund:"Compounder",
 theme:"Steel Pipes / Infrastructure",
 score:88,
 grade:"A",
 growth:92,
 quality:84,
-institutions:72,
+institution:72,
 valuation:78,
 risk:66,
-status:"Watchlist",
-
-thesis:
-"Structural pipe demand, capacity expansion and order visibility can support multi-year compounding.",
-
+thesis:"Structural pipe demand, capacity expansion and order visibility can support multi-year compounding.",
 checks:[
 "Niche / structural market",
 "Scalability",
@@ -722,90 +487,48 @@ checks:[
 "Cash generation",
 "Management quality"
 ],
-
-risk:
-"Monitor leverage, working-capital intensity, margin cycle and execution.",
-
-next:
-"Track quarterly earnings, order inflow, capacity utilisation, cash conversion and institutional ownership."
+riskText:"Monitor leverage, working capital, margin cycle and execution.",
+next:"Track quarterly earnings, order inflow, capacity utilisation and cash conversion."
 },
 
 {
-
 name:"VA Tech Wabag",
-
 ticker:"WABAG",
-
-fund:"Compounder",
-
 theme:"Water / Wastewater Infrastructure",
-
 score:91,
-
 grade:"A",
-
 growth:94,
-
 quality:86,
-
-institutions:78,
-
+institution:78,
 valuation:76,
-
 risk:61,
-
-status:"Watchlist",
-
-thesis:
-"Water infrastructure is a long-duration structural theme; execution and order book are key compounding engines.",
-
+thesis:"Water infrastructure is a long-duration structural theme; execution and order book are key.",
 checks:[
 "Structural water demand",
 "International scale",
 "Earnings growth",
-"ROCE / ROE trajectory",
+"ROCE / ROE",
 "Order book",
 "Cash conversion",
 "Promoter seriousness",
 "Execution quality"
 ],
-
-risk:
-"Execution delays, receivables, project working capital and order quality.",
-
-next:
-"Track order book, receivables, operating cash flow, margin and new large project wins."
+riskText:"Execution delays, receivables and project working capital.",
+next:"Track order book, receivables, operating cash flow and margins."
 },
 
 {
-
 name:"Atlanta Electricals",
-
 ticker:"ATLANTA",
-
-fund:"Compounder",
-
 theme:"Power / Electrical Infrastructure",
-
 score:86,
-
 grade:"A",
-
 growth:90,
-
 quality:81,
-
-institutions:64,
-
+institution:64,
 valuation:82,
-
 risk:69,
-
-status:"Watchlist",
-
-thesis:
-"Power infrastructure and grid investment can create a long runway if capacity and execution scale as planned.",
-
+thesis:"Power infrastructure and grid investment can create a long runway if execution scales.",
 checks:[
 "Structural power theme",
 "Capacity expansion",
@@ -816,43 +539,22 @@ checks:[
 "Cash generation",
 "Management quality"
 ],
-
-risk:
-"Execution concentration, customer concentration and cash-flow conversion.",
-
-next:
-"Track capacity commissioning, order book, margins and cash generation."
+riskText:"Execution concentration and customer concentration.",
+next:"Track capacity commissioning, order book, margins and cash generation."
 },
 
 {
-
 name:"Quality Power",
-
 ticker:"QUALITYPOWER",
-
-fund:"Compounder",
-
 theme:"Grid / Power Quality Equipment",
-
 score:89,
-
 grade:"A",
-
 growth:93,
-
 quality:83,
-
-institutions:70,
-
+institution:70,
 valuation:74,
-
 risk:65,
-
-status:"Watchlist",
-
-thesis:
-"Grid modernisation, renewable integration and power-quality equipment provide structural demand.",
-
+thesis:"Grid modernisation and renewable integration provide structural demand.",
 checks:[
 "Grid structural theme",
 "Renewable integration",
@@ -863,243 +565,77 @@ checks:[
 "Order book",
 "Cash generation"
 ],
-
-risk:
-"Valuation compression, order timing and execution risk.",
-
-next:
-"Track order intake, export growth, margins, working capital and capacity expansion."
+riskText:"Valuation compression, order timing and execution.",
+next:"Track order intake, export growth, margins and working capital."
 },
 
 {
-
 name:"Shaily Engineering",
-
 ticker:"SHAILY",
-
-fund:"Compounder",
-
 theme:"Precision Engineering / Export Manufacturing",
-
 score:90,
-
 grade:"A",
-
 growth:95,
-
 quality:85,
-
-institutions:68,
-
+institution:68,
 valuation:73,
-
 risk:64,
-
-status:"Watchlist",
-
-thesis:
-"Export-led precision manufacturing and capacity additions can drive operating leverage and scale.",
-
+thesis:"Export-led precision manufacturing and capacity additions can drive operating leverage.",
 checks:[
 "Niche manufacturing",
 "Scalability",
 "Earnings growth",
 "ROCE improvement",
 "Capex / CWIP",
-"Customer / order visibility",
+"Customer visibility",
 "Cash generation",
 "Management quality"
 ],
-
-risk:
-"Customer concentration, capex execution, margin pressure and valuation.",
-
-next:
-"Track export growth, customer additions, capacity utilisation, ROCE and free cash flow."
+riskText:"Customer concentration, capex execution and margin pressure.",
+next:"Track export growth, customer additions, capacity utilisation and free cash flow."
 }
 
 ];
 
 
-let active="All";
+function esc(x){
 
+return String(x).replace(/[&<>"']/g,function(m){
 
-const GATE=[
-
-["Relative Strength","Pending"],
-
-["Earnings Growth","Pending"],
-
-["Institutional Flow","Pending"],
-
-["Sector Breadth","Pending"],
-
-["Price / Volume","Pending"],
-
-["Valuation","Pending"]
-
-];
-
-
-const $ = id => document.getElementById(id);
-
-
-function esc(s){
-
-return String(s).replace(
-/[&<>"']/g,
-
-m => ({
-
+return {
 "&":"&amp;",
 "<":"&lt;",
 ">":"&gt;",
 '"':"&quot;",
 "'":"&#39;"
+}[m];
 
-}[m])
-
-);
-
-}
-
-
-function cls(v){
-
-if(v>=80) return "good";
-
-if(v>=65) return "warn";
-
-return "bad";
+});
 
 }
 
 
-function renderKpis(){
+function render(){
 
-const avg=Math.round(
-
-STOCKS.reduce(
-(a,x)=>a+x.score,
-0
-)/STOCKS.length
-
-);
-
-$("kpis").innerHTML=[
-
-[
-"Stocks",
-"5",
-"Locked research universe"
-],
-
-[
-"Avg PRV Score",
-avg,
-"Research ranking"
-],
-
-[
-"A-Grade",
-STOCKS.filter(
-x=>x.grade==="A"
-).length,
-"Quality threshold"
-],
-
-[
-"Action",
-"WATCHLIST",
-"Not an automatic buy"
-]
-
-].map(x=>`
-
-<div class="card kpi">
-
-<span class="muted">
-${x[0]}
-</span>
-
-<div class="n">
-${x[1]}
-</div>
-
-<small class="muted">
-${x[2]}
-</small>
-
-</div>
-
-`).join("");
-
-}
-
-
-function renderGate(){
-
-$("gate").innerHTML=GATE.map(x=>`
-
-<div class="card">
-
-<span class="muted">
-${x[0]}
-</span>
-
-<br>
-
-<b>
-${x[1]}
-</b>
-
-</div>
-
-`).join("");
-
-}
-
-
-function renderTabs(){
-
-const names=["All","Compounder"];
-
-$("tabs").innerHTML=names.map(x=>`
-
-<button
-class="btn tab ${active===x?"active":""}"
-onclick="setFund('${x}')">
-
-${x}
-
-</button>
-
-`).join("");
-
-}
-
-
-function filtered(){
-
-const q=$("search")
+const q=document
+.getElementById("search")
 .value
 .toLowerCase();
 
-const g=$("grade").value;
+const grade=document
+.getElementById("grade")
+.value;
 
-return STOCKS.filter(x=>
+const list=stocks.filter(function(s){
 
-(active==="All"||x.fund===active)
-
-&&
+return (
 
 (
 !q ||
-
 (
-x.name+" "+
-x.ticker+" "+
-x.theme
+s.name+" "+
+s.ticker+" "+
+s.theme
 )
 .toLowerCase()
 .includes(q)
@@ -1108,57 +644,50 @@ x.theme
 &&
 
 (
-g==="all" ||
-x.grade===g
+grade==="all" ||
+s.grade===grade
 )
 
 );
 
-}
+});
 
 
-function renderStocks(){
+document.getElementById("stocks")
+.innerHTML=list.map(function(s){
 
-const arr=filtered();
+return `
 
-$("stocks").innerHTML=arr.length
-
-?
-
-arr.map(x=>`
-
-<article
+<div
 class="card stock"
-onclick="openStock('${x.ticker}')">
+onclick="showStock('${s.ticker}')">
 
-<div class="stockhead">
+<div class="stock-head">
 
 <div>
 
-<span class="ticker">
-${esc(x.ticker)}
-</span>
+<div class="ticker">
+${esc(s.ticker)}
+</div>
 
 <h3>
-${esc(x.name)}
+${esc(s.name)}
 </h3>
 
-<small class="muted">
-${esc(x.theme)}
-</small>
+<div class="muted">
+${esc(s.theme)}
+</div>
 
 </div>
 
-<div style="text-align:right">
+<div>
 
 <div class="score">
-${x.score}
+${s.score}
 </div>
 
-<span class="pill ${cls(x.score)}">
-
-${x.grade} • ${x.status}
-
+<span class="pill">
+${s.grade}
 </span>
 
 </div>
@@ -1168,56 +697,49 @@ ${x.grade} • ${x.status}
 
 <div class="meter">
 
-<i style="--w:${x.score}%"></i>
+<span style="width:${s.score}%"></span>
 
 </div>
 
 
-<div class="mini">
+<div class="metrics">
 
-<div>
+<div class="metric">
 <small>Growth</small>
-<b>${x.growth}</b>
+<b>${s.growth}</b>
 </div>
 
-<div>
+<div class="metric">
 <small>Quality</small>
-<b>${x.quality}</b>
+<b>${s.quality}</b>
 </div>
 
-<div>
-<small>Institutional</small>
-<b>${x.institutions}</b>
+<div class="metric">
+<small>Institution</small>
+<b>${s.institution}</b>
 </div>
 
-<div>
+<div class="metric">
 <small>Valuation</small>
-<b>${x.valuation}</b>
+<b>${s.valuation}</b>
 </div>
 
-<div>
+<div class="metric">
 <small>Risk</small>
-<b>${x.risk}</b>
+<b>${s.risk}</b>
 </div>
 
-<div>
-<small>Fund</small>
-<b>${x.fund}</b>
+<div class="metric">
+<small>Status</small>
+<b>WATCH</b>
 </div>
 
 </div>
 
-
-<div class="row">
-
-<span class="muted">
-${esc(x.thesis)}
-</span>
 
 <button
-class="btn primary"
-onclick="event.stopPropagation();
-openStock('${x.ticker}')">
+style="margin-top:14px"
+onclick="event.stopPropagation();showStock('${s.ticker}')">
 
 Research
 
@@ -1225,78 +747,187 @@ Research
 
 </div>
 
-</article>
-
-`).join("")
-
-:
-
-`
-<div class="card empty">
-No stocks match the filters.
-</div>
 `;
 
-}
+}).join("");
 
 
-function renderMatrix(){
+document.getElementById("matrix")
+.innerHTML=list.map(function(s){
 
-const arr=filtered();
-
-$("matrix").innerHTML=arr.map(x=>`
+return `
 
 <tr>
 
 <td>
-
-<b>
-${esc(x.name)}
-</b>
-
+<b>${esc(s.name)}</b>
 <br>
-
-<small class="muted">
-${x.ticker}
-</small>
-
+<small>${esc(s.ticker)}</small>
 </td>
 
 <td>
-<b>${x.score}</b>
+<b>${s.score}</b>
 </td>
 
-<td class="${cls(x.growth)}">
-${x.growth}
+<td class="good">
+${s.growth}
 </td>
 
-<td class="${cls(x.quality)}">
-${x.quality}
-</td>
-
-<td class="${cls(x.institutions)}">
-${x.institutions}
-</td>
-
-<td class="${cls(x.valuation)}">
-${x.valuation}
-</td>
-
-<td class="${x.risk<70?"warn":"positive"}">
-${x.risk}
+<td class="good">
+${s.quality}
 </td>
 
 <td>
-${x.status}
+${s.institution}
+</td>
+
+<td>
+${s.valuation}
+</td>
+
+<td class="warn">
+${s.risk}
 </td>
 
 </tr>
 
-`).join("");
+`;
+
+}).join("");
 
 }
 
 
-function openStock(t){
+function showStock(ticker){
 
-const x=STOCK
+const s=stocks.find(
+x=>x.ticker===ticker
+);
+
+if(!s)return;
+
+
+document.getElementById("detail")
+.innerHTML=`
+
+<h2>
+${esc(s.name)}
+</h2>
+
+<div class="ticker">
+${esc(s.ticker)}
+</div>
+
+<p class="muted">
+${esc(s.theme)}
+</p>
+
+<div class="grid detail-grid">
+
+<div class="card">
+Growth
+<br>
+<b>${s.growth}/100</b>
+</div>
+
+<div class="card">
+Quality
+<br>
+<b>${s.quality}/100</b>
+</div>
+
+<div class="card">
+Institutional
+<br>
+<b>${s.institution}/100</b>
+</div>
+
+<div class="card">
+Valuation
+<br>
+<b>${s.valuation}/100</b>
+</div>
+
+</div>
+
+
+<h3>
+PRV Score: ${s.score}/100
+</h3>
+
+<div class="meter">
+<span style="width:${s.score}%"></span>
+</div>
+
+
+<h3>
+Investment Thesis
+</h3>
+
+<p class="muted">
+${esc(s.thesis)}
+</p>
+
+
+<h3>
+PRV Compounder Checklist
+</h3>
+
+${s.checks.map(function(c){
+
+return `
+<div class="check">
+✓ ${esc(c)}
+</div>
+`;
+
+}).join("")}
+
+
+<div class="risk">
+
+<b>⚠ Risk Watch</b>
+
+<br><br>
+
+${esc(s.riskText)}
+
+</div>
+
+
+<div class="next">
+
+<b>Next Research Trigger</b>
+
+<br><br>
+
+${esc(s.next)}
+
+</div>
+
+
+<button
+style="margin-top:15px"
+onclick="window.scrollTo({top:0,behavior:'smooth'})">
+
+↑ Back to Top
+
+</button>
+
+`;
+
+document
+.getElementById("detail")
+.scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+
+render();
+
+</script>
+
+</body>
+</html>
