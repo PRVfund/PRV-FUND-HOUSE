@@ -461,9 +461,52 @@ Stock card पर tap करके detailed research खोलें।
 </div>
 
 
+<script src="prv-master-data.js"></script>
+
 <script>
 
-const stocks=[
+const stocks = PRV_DATA.stocks.map(function(s){
+
+    return {
+        name: s.name,
+        ticker: s.ticker,
+        theme: s.fundGroup,
+        score: s.score,
+
+        grade:
+            s.score >= 90 ? "A" :
+            s.score >= 80 ? "B" : "C",
+
+        growth: "—",
+        quality: "—",
+        institution: "—",
+        valuation: "—",
+        risk: "—",
+
+        thesis:
+            "PRV Master Dashboard stock. Current research snapshot is maintained in the PRV Master Data layer.",
+
+        checks: [
+            "PRV Score",
+            "Fund / Group",
+            "Role",
+            "Status",
+            "Sales Growth",
+            "PAT Growth",
+            "ROCE",
+            "ROE",
+            "CFO / PAT",
+            "Debt / Equity",
+            "Action"
+        ],
+
+        riskText:
+            "Monitor earnings, ROCE, CFO/PAT, debt, order book and promoter/management.",
+
+        next: s.action
+    };
+
+});
 
 {
 name:"MAN Industries",
