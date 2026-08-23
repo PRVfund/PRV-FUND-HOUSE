@@ -1,935 +1,1513 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
 <title>PRV FUND HOUSE</title>
 
 <style>
-*{box-sizing:border-box}
+
+*{
+    box-sizing:border-box;
+}
 
 body{
-margin:0;
-font-family:Arial,sans-serif;
-background:#070b12;
-color:#fff
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#070b12;
+    color:#ffffff;
 }
 
 .container{
-max-width:1100px;
-margin:auto;
-padding:16px
+    max-width:1100px;
+    margin:auto;
+    padding:16px;
 }
 
 .header{
-padding:18px 0;
-border-bottom:1px solid #243047;
-position:sticky;
-top:0;
-background:#070b12ee;
-z-index:10
+    padding:18px 0;
+    border-bottom:1px solid #243047;
+    position:sticky;
+    top:0;
+    background:#070b12ee;
+    z-index:10;
 }
 
 .header h1{
-margin:0;
-font-size:24px
+    margin:0;
+    font-size:24px;
 }
 
 .header span{
-color:#62a8ff
+    color:#62a8ff;
 }
 
 .hero{
-padding:30px 0 20px
+    padding:30px 0 20px;
 }
 
 .hero h2{
-font-size:38px;
-margin:5px 0 12px
+    font-size:38px;
+    margin:5px 0 12px;
 }
 
 .muted{
-color:#91a0b6
+    color:#91a0b6;
 }
 
 .grid{
-display:grid;
-gap:14px
+    display:grid;
+    gap:14px;
 }
 
 .kpis{
-grid-template-columns:repeat(4,1fr)
+    grid-template-columns:repeat(4,1fr);
 }
 
 .card{
-background:#101722;
-border:1px solid #26344b;
-border-radius:16px;
-padding:17px
+    background:#101722;
+    border:1px solid #26344b;
+    border-radius:16px;
+    padding:17px;
 }
 
 .kpi-number{
-font-size:28px;
-font-weight:bold;
-margin:7px 0
+    font-size:28px;
+    font-weight:bold;
+    margin:7px 0;
 }
 
 .gates{
-grid-template-columns:repeat(6,1fr)
+    grid-template-columns:repeat(6,1fr);
 }
 
 .stocks{
-grid-template-columns:repeat(2,1fr)
+    grid-template-columns:repeat(2,1fr);
 }
 
 .stock{
-cursor:pointer;
-transition:.2s
+    cursor:pointer;
+    transition:.2s;
 }
 
 .stock:hover{
-transform:translateY(-3px);
-border-color:#4b79b7
+    transform:translateY(-3px);
+    border-color:#4b79b7;
 }
 
 .stock-head{
-display:flex;
-justify-content:space-between;
-gap:10px
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
 }
 
 .ticker{
-color:#62a8ff;
-font-weight:bold;
-font-size:12px
+    color:#62a8ff;
+    font-weight:bold;
+    font-size:12px;
 }
 
 .score{
-font-size:27px;
-font-weight:bold
+    font-size:27px;
+    font-weight:bold;
 }
 
 .pill{
-display:inline-block;
-padding:5px 9px;
-border-radius:20px;
-font-size:11px;
-background:#123d29;
-color:#65e69a
+    display:inline-block;
+    padding:5px 9px;
+    border-radius:20px;
+    font-size:11px;
+    background:#123d29;
+    color:#65e69a;
 }
 
 .meter{
-height:7px;
-background:#202c3e;
-border-radius:20px;
-margin:12px 0;
-overflow:hidden
+    height:7px;
+    background:#202c3e;
+    border-radius:20px;
+    margin:12px 0;
+    overflow:hidden;
 }
 
 .meter span{
-display:block;
-height:100%;
-background:linear-gradient(90deg,#ff6677,#ffc857,#49e28a)
+    display:block;
+    height:100%;
+    background:linear-gradient(
+        90deg,
+        #ff6677,
+        #ffc857,
+        #49e28a
+    );
 }
 
 .metrics{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:8px
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:8px;
 }
 
 .metric{
-background:#0b111a;
-border:1px solid #1d2a3e;
-border-radius:10px;
-padding:9px
+    background:#0b111a;
+    border:1px solid #1d2a3e;
+    border-radius:10px;
+    padding:9px;
 }
 
 .metric small{
-color:#91a0b6
+    color:#91a0b6;
 }
 
 .metric b{
-display:block;
-margin-top:4px
+    display:block;
+    margin-top:4px;
 }
 
 button{
-background:#18345d;
-color:white;
-border:1px solid #2e68ad;
-border-radius:10px;
-padding:10px 14px;
-cursor:pointer
+    background:#18345d;
+    color:white;
+    border:1px solid #2e68ad;
+    border-radius:10px;
+    padding:10px 14px;
+    cursor:pointer;
 }
 
 button:hover{
-background:#234b80
+    background:#234b80;
 }
 
 .toolbar{
-display:flex;
-gap:10px;
-margin-bottom:14px
+    display:flex;
+    gap:10px;
+    margin-bottom:14px;
 }
 
-input,select{
-background:#101722;
-color:white;
-border:1px solid #26344b;
-border-radius:10px;
-padding:11px
+input,
+select{
+    background:#101722;
+    color:white;
+    border:1px solid #26344b;
+    border-radius:10px;
+    padding:11px;
 }
 
 input{
-flex:1
+    flex:1;
 }
 
 table{
-width:100%;
-border-collapse:collapse
+    width:100%;
+    border-collapse:collapse;
 }
 
-th,td{
-padding:11px;
-border-bottom:1px solid #243047;
-text-align:left
+th,
+td{
+    padding:11px;
+    border-bottom:1px solid #243047;
+    text-align:left;
 }
 
 th{
-color:#91a0b6;
-font-size:12px
+    color:#91a0b6;
+    font-size:12px;
 }
 
 .good{
-color:#49e28a
+    color:#49e28a;
 }
 
 .warn{
-color:#ffc857
+    color:#ffc857;
 }
 
 .detail{
-margin-top:20px
+    margin-top:20px;
 }
 
 .detail-grid{
-grid-template-columns:repeat(4,1fr)
+    grid-template-columns:repeat(4,1fr);
 }
 
 .check{
-padding:10px;
-background:#0d2117;
-border:1px solid #245b40;
-border-radius:9px;
-margin:6px 0;
-color:#9af0ba
+    padding:10px;
+    background:#0d2117;
+    border:1px solid #245b40;
+    border-radius:9px;
+    margin:6px 0;
+    color:#9af0ba;
 }
 
 .risk{
-padding:13px;
-margin-top:15px;
-background:#302510;
-border:1px solid #66511d;
-border-radius:12px;
-color:#ffd77b
+    padding:13px;
+    margin-top:15px;
+    background:#302510;
+    border:1px solid #66511d;
+    border-radius:12px;
+    color:#ffd77b;
 }
 
 .next{
-padding:13px;
-margin-top:12px;
-background:#111d31;
-border:1px solid #29466f;
-border-radius:12px;
-color:#b8d7ff
+    padding:13px;
+    margin-top:12px;
+    background:#111d31;
+    border:1px solid #29466f;
+    border-radius:12px;
+    color:#b8d7ff;
+}
+
+.section-title{
+    margin-top:30px;
 }
 
 @media(max-width:800px){
-.kpis{grid-template-columns:repeat(2,1fr)}
-.gates{grid-template-columns:repeat(3,1fr)}
-.stocks{grid-template-columns:1fr}
-.detail-grid{grid-template-columns:repeat(2,1fr)}
+
+    .kpis{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .gates{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .stocks{
+        grid-template-columns:1fr;
+    }
+
+    .detail-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
 }
 
 @media(max-width:500px){
-.gates{grid-template-columns:repeat(2,1fr)}
-.detail-grid{grid-template-columns:1fr}
-.hero h2{font-size:32px}
+
+    .gates{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .detail-grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero h2{
+        font-size:32px;
+    }
+
+    .metrics{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .toolbar{
+        flex-direction:column;
+    }
+
 }
+
 </style>
+
 </head>
+
 
 <body>
 
+
 <div class="header">
-<div class="container">
-<h1>📗 PRV <span>FUND HOUSE</span></h1>
-</div>
+
+    <div class="container">
+
+        <h1>
+            📗 PRV
+            <span>FUND HOUSE</span>
+        </h1>
+
+    </div>
+
 </div>
 
+
 <div class="container">
+
 
 <section class="hero">
 
-<div class="ticker">
-ADVANCED RESEARCH TERMINAL
-</div>
+    <div class="ticker">
+        ADVANCED RESEARCH TERMINAL
+    </div>
 
-<h2>PRV Stock Research</h2>
+    <h2>
+        PRV Stock Research
+    </h2>
 
-<p class="muted">
-Fundamental + Growth + Quality + Institutional +
-Valuation + Risk + Portfolio framework.
-</p>
+    <p class="muted">
+        Fundamental + Growth + Quality +
+        Institutional + Valuation + Risk +
+        Portfolio Framework
+    </p>
 
 </section>
 
+
+
+<!-- ========================= -->
+<!-- KPI SECTION -->
+<!-- ========================= -->
 
 <section class="grid kpis">
 
-<div class="card">
-<div class="muted">Stocks</div>
-<div class="kpi-number">5</div>
-<div class="muted">Compounder universe</div>
-</div>
 
 <div class="card">
-<div class="muted">Average PRV Score</div>
-<div class="kpi-number">89</div>
-<div class="muted">Research ranking</div>
+
+    <div class="muted">
+        Stocks
+    </div>
+
+    <div
+        class="kpi-number"
+        id="stockCount">
+        0
+    </div>
+
+    <div class="muted">
+        PRV Master Universe
+    </div>
+
 </div>
 
-<div class="card">
-<div class="muted">A Grade</div>
-<div class="kpi-number">5</div>
-<div class="muted">Quality candidates</div>
-</div>
 
 <div class="card">
-<div class="muted">Action</div>
-<div class="kpi-number">WATCH</div>
-<div class="muted">Not automatic BUY</div>
+
+    <div class="muted">
+        Average PRV Score
+    </div>
+
+    <div
+        class="kpi-number"
+        id="averageScore">
+        0
+    </div>
+
+    <div class="muted">
+        Research ranking
+    </div>
+
 </div>
+
+
+<div class="card">
+
+    <div class="muted">
+        A Grade
+    </div>
+
+    <div
+        class="kpi-number"
+        id="aGrade">
+        0
+    </div>
+
+    <div class="muted">
+        Quality candidates
+    </div>
+
+</div>
+
+
+<div class="card">
+
+    <div class="muted">
+        Action
+    </div>
+
+    <div class="kpi-number">
+        WATCH
+    </div>
+
+    <div class="muted">
+        Not automatic BUY
+    </div>
+
+</div>
+
 
 </section>
 
 
+
+<!-- ========================= -->
+<!-- SECTOR ROTATION -->
+<!-- ========================= -->
+
 <section>
 
-<h2>🎯 Sector Rotation Gate</h2>
+<h2 class="section-title">
+    🎯 Sector Rotation Gate
+</h2>
+
 
 <div class="grid gates">
 
-<div class="card">Relative Strength<br><b>Pending</b></div>
-<div class="card">Earnings Growth<br><b>Pending</b></div>
-<div class="card">Institutional Flow<br><b>Pending</b></div>
-<div class="card">Sector Breadth<br><b>Pending</b></div>
-<div class="card">Price / Volume<br><b>Pending</b></div>
-<div class="card">Valuation<br><b>Pending</b></div>
+
+<div class="card">
+    Relative Strength
+    <br>
+    <b>Pending</b>
+</div>
+
+
+<div class="card">
+    Earnings Growth
+    <br>
+    <b>Pending</b>
+</div>
+
+
+<div class="card">
+    Institutional Flow
+    <br>
+    <b>Pending</b>
+</div>
+
+
+<div class="card">
+    Sector Breadth
+    <br>
+    <b>Pending</b>
+</div>
+
+
+<div class="card">
+    Price / Volume
+    <br>
+    <b>Pending</b>
+</div>
+
+
+<div class="card">
+    Valuation
+    <br>
+    <b>Pending</b>
+</div>
+
 
 </div>
 
 </section>
 
 
+
+<!-- ========================= -->
+<!-- SEARCH -->
+<!-- ========================= -->
+
 <section>
 
-<h2>🔎 Stock Search</h2>
+<h2 class="section-title">
+    🔎 Stock Search
+</h2>
+
 
 <div class="toolbar">
 
+
 <input
-id="search"
-placeholder="Search stock..."
-oninput="render()">
+    id="search"
+    placeholder="Search stock..."
+    oninput="render()">
 
-<select id="grade" onchange="render()">
 
-<option value="all">All Grades</option>
-<option value="A">A</option>
-<option value="B">B</option>
-<option value="C">C</option>
+<select
+    id="grade"
+    onchange="render()">
+
+    <option value="all">
+        All Grades
+    </option>
+
+    <option value="A">
+        A
+    </option>
+
+    <option value="B">
+        B
+    </option>
+
+    <option value="C">
+        C
+    </option>
 
 </select>
+
 
 </div>
 
 </section>
 
 
+
+<!-- ========================= -->
+<!-- STOCKS -->
+<!-- ========================= -->
+
 <section>
 
-<h2>📈 PRV Compounder Universe</h2>
+<h2 class="section-title">
+    📈 PRV Stock Universe
+</h2>
 
-<div id="stocks" class="grid stocks"></div>
+
+<div
+    id="stocks"
+    class="grid stocks">
+</div>
+
 
 </section>
 
 
+
+<!-- ========================= -->
+<!-- MATRIX -->
+<!-- ========================= -->
+
 <section>
 
-<h2>📊 Research Matrix</h2>
+<h2 class="section-title">
+    📊 Research Matrix
+</h2>
+
 
 <div class="card">
 
+
 <table>
+
 
 <thead>
 
 <tr>
-<th>Stock</th>
-<th>Score</th>
-<th>Growth</th>
-<th>Quality</th>
-<th>Institution</th>
-<th>Valuation</th>
-<th>Risk</th>
+
+<th>
+Stock
+</th>
+
+<th>
+Score
+</th>
+
+<th>
+Growth
+</th>
+
+<th>
+Quality
+</th>
+
+<th>
+Institution
+</th>
+
+<th>
+Valuation
+</th>
+
+<th>
+Risk
+</th>
+
 </tr>
 
 </thead>
 
-<tbody id="matrix"></tbody>
+
+<tbody
+    id="matrix">
+</tbody>
+
 
 </table>
 
+
 </div>
 
 </section>
 
 
-<section id="detail" class="card detail">
 
-<h2>🔎 Select a Stock</h2>
+<!-- ========================= -->
+<!-- STOCK DETAIL -->
+<!-- ========================= -->
+
+<section
+    id="detail"
+    class="card detail">
+
+
+<h2>
+    🔎 Select a Stock
+</h2>
+
 
 <p class="muted">
-Stock card पर tap करके detailed research खोलें।
+
+Tap any stock card to open
+detailed PRV research.
+
 </p>
+
 
 </section>
 
+
+
+<!-- ========================= -->
+<!-- DECISION ENGINE -->
+<!-- ========================= -->
 
 <section>
 
-<h2>🧠 PRV Decision Engine</h2>
+<h2 class="section-title">
+    🧠 PRV Decision Engine
+</h2>
+
 
 <div class="grid detail-grid">
 
-<div class="card">
-<b>Thesis</b>
-<p class="muted">Structural market + scalability</p>
-</div>
 
 <div class="card">
-<b>Quality</b>
-<p class="muted">ROCE / ROE + cash flow</p>
+
+<b>
+    Thesis
+</b>
+
+<p class="muted">
+    Structural market +
+    scalability
+</p>
+
 </div>
 
-<div class="card">
-<b>Growth</b>
-<p class="muted">Earnings + Capex + CWIP</p>
-</div>
 
 <div class="card">
-<b>Institutional</b>
-<p class="muted">FII / DII / MF + promoter</p>
+
+<b>
+    Quality
+</b>
+
+<p class="muted">
+    ROCE / ROE +
+    cash flow
+</p>
+
 </div>
 
-<div class="card">
-<b>Valuation</b>
-<p class="muted">Growth-adjusted valuation</p>
-</div>
 
 <div class="card">
-<b>Risk</b>
-<p class="muted">Thesis break + earnings</p>
+
+<b>
+    Growth
+</b>
+
+<p class="muted">
+    Earnings + Capex +
+    CWIP
+</p>
+
 </div>
 
-<div class="card">
-<b>Portfolio</b>
-<p class="muted">Position size + concentration</p>
-</div>
 
 <div class="card">
-<b>Sell Discipline</b>
-<p class="muted">Invalidation based exit</p>
+
+<b>
+    Institutional
+</b>
+
+<p class="muted">
+    FII / DII / MF +
+    promoter
+</p>
+
 </div>
+
+
+<div class="card">
+
+<b>
+    Valuation
+</b>
+
+<p class="muted">
+    Growth-adjusted valuation
+</p>
+
+</div>
+
+
+<div class="card">
+
+<b>
+    Risk
+</b>
+
+<p class="muted">
+    Thesis break +
+    earnings
+</p>
+
+</div>
+
+
+<div class="card">
+
+<b>
+    Portfolio
+</b>
+
+<p class="muted">
+    Position size +
+    concentration
+</p>
+
+</div>
+
+
+<div class="card">
+
+<b>
+    Sell Discipline
+</b>
+
+<p class="muted">
+    Invalidation based exit
+</p>
+
+</div>
+
 
 </div>
 
 </section>
 
+
 </div>
 
 
+
+<!-- ===================================================== -->
+<!-- PRV MASTER DATA — MUST LOAD BEFORE DASHBOARD SCRIPT -->
+<!-- ===================================================== -->
+
 <script src="prv-master-data.js"></script>
 
+
+
 <script>
+
+
+/* =========================================================
+   CREATE DASHBOARD STOCK DATA
+   ========================================================= */
+
 
 const stocks = PRV_DATA.stocks.map(function(s){
 
     return {
+
         name: s.name,
+
         ticker: s.ticker,
+
         theme: s.fundGroup,
+
         score: s.score,
 
         grade:
-            s.score >= 90 ? "A" :
-            s.score >= 80 ? "B" : "C",
+            s.score >= 90
+                ? "A"
+                : s.score >= 80
+                    ? "B"
+                    : "C",
 
         growth: "—",
+
         quality: "—",
+
         institution: "—",
+
         valuation: "—",
+
         risk: "—",
 
+        status: s.status,
+
+        role: s.role,
+
+        action: s.action,
+
         thesis:
-            "PRV Master Dashboard stock. Current research snapshot is maintained in the PRV Master Data layer.",
+            "PRV Master Dashboard stock. " +
+            "Current research snapshot is maintained " +
+            "in the PRV Master Data layer.",
 
         checks: [
+
             "PRV Score",
+
             "Fund / Group",
+
             "Role",
+
             "Status",
+
             "Sales Growth",
+
             "PAT Growth",
+
             "ROCE",
+
             "ROE",
+
             "CFO / PAT",
+
             "Debt / Equity",
+
+            "Capex / CWIP",
+
+            "Order Book",
+
+            "Promoter / Management",
+
             "Action"
+
         ],
 
         riskText:
-            "Monitor earnings, ROCE, CFO/PAT, debt, order book and promoter/management.",
+            "Monitor earnings, ROCE, CFO/PAT, " +
+            "debt, order book and " +
+            "promoter/management.",
 
-        next: s.action
+        next:
+            s.action
+
     };
 
 });
 
-{
-name:"MAN Industries",
-ticker:"MANINDS",
-theme:"Steel Pipes / Infrastructure",
-score:88,
-grade:"A",
-growth:92,
-quality:84,
-institution:72,
-valuation:78,
-risk:66,
-thesis:"Structural pipe demand, capacity expansion and order visibility can support multi-year compounding.",
-checks:[
-"Niche / structural market",
-"Scalability",
-"Earnings growth",
-"ROCE / ROE improvement",
-"Capex / CWIP",
-"Order visibility",
-"Cash generation",
-"Management quality"
-],
-riskText:"Monitor leverage, working capital, margin cycle and execution.",
-next:"Track quarterly earnings, order inflow, capacity utilisation and cash conversion."
-},
-
-{
-name:"VA Tech Wabag",
-ticker:"WABAG",
-theme:"Water / Wastewater Infrastructure",
-score:91,
-grade:"A",
-growth:94,
-quality:86,
-institution:78,
-valuation:76,
-risk:61,
-thesis:"Water infrastructure is a long-duration structural theme; execution and order book are key.",
-checks:[
-"Structural water demand",
-"International scale",
-"Earnings growth",
-"ROCE / ROE",
-"Order book",
-"Cash conversion",
-"Promoter seriousness",
-"Execution quality"
-],
-riskText:"Execution delays, receivables and project working capital.",
-next:"Track order book, receivables, operating cash flow and margins."
-},
-
-{
-name:"Atlanta Electricals",
-ticker:"ATLANTA",
-theme:"Power / Electrical Infrastructure",
-score:86,
-grade:"A",
-growth:90,
-quality:81,
-institution:64,
-valuation:82,
-risk:69,
-thesis:"Power infrastructure and grid investment can create a long runway if execution scales.",
-checks:[
-"Structural power theme",
-"Capacity expansion",
-"Earnings growth",
-"ROCE improvement",
-"Capex / CWIP",
-"Order visibility",
-"Cash generation",
-"Management quality"
-],
-riskText:"Execution concentration and customer concentration.",
-next:"Track capacity commissioning, order book, margins and cash generation."
-},
-
-{
-name:"Quality Power",
-ticker:"QUALITYPOWER",
-theme:"Grid / Power Quality Equipment",
-score:89,
-grade:"A",
-growth:93,
-quality:83,
-institution:70,
-valuation:74,
-risk:65,
-thesis:"Grid modernisation and renewable integration provide structural demand.",
-checks:[
-"Grid structural theme",
-"Renewable integration",
-"Scalability",
-"Earnings growth",
-"ROCE / ROE",
-"Capex",
-"Order book",
-"Cash generation"
-],
-riskText:"Valuation compression, order timing and execution.",
-next:"Track order intake, export growth, margins and working capital."
-},
-
-{
-name:"Shaily Engineering",
-ticker:"SHAILY",
-theme:"Precision Engineering / Export Manufacturing",
-score:90,
-grade:"A",
-growth:95,
-quality:85,
-institution:68,
-valuation:73,
-risk:64,
-thesis:"Export-led precision manufacturing and capacity additions can drive operating leverage.",
-checks:[
-"Niche manufacturing",
-"Scalability",
-"Earnings growth",
-"ROCE improvement",
-"Capex / CWIP",
-"Customer visibility",
-"Cash generation",
-"Management quality"
-],
-riskText:"Customer concentration, capex execution and margin pressure.",
-next:"Track export growth, customer additions, capacity utilisation and free cash flow."
-}
-
-];
 
 
-function esc(x){
+/* =========================================================
+   HTML ESCAPE
+   ========================================================= */
 
-return String(x).replace(/[&<>"']/g,function(m){
 
-return {
-"&":"&amp;",
-"<":"&lt;",
-">":"&gt;",
-'"':"&quot;",
-"'":"&#39;"
-}[m];
+function esc(value){
 
-});
+    return String(value)
+
+        .replace(
+            /[&<>"']/g,
+            function(m){
+
+                return {
+
+                    "&":"&amp;",
+                    "<":"&lt;",
+                    ">":"&gt;",
+                    '"':"&quot;",
+                    "'":"&#39;"
+
+                }[m];
+
+            }
+        );
 
 }
+
+
+
+/* =========================================================
+   KPI
+   ========================================================= */
+
+
+function updateKPI(){
+
+    const count =
+        stocks.length;
+
+
+    const total =
+        stocks.reduce(
+            function(sum,s){
+
+                return sum + Number(s.score || 0);
+
+            },
+            0
+        );
+
+
+    const average =
+        count
+            ? Math.round(total / count)
+            : 0;
+
+
+    const aCount =
+        stocks.filter(
+            function(s){
+
+                return s.grade === "A";
+
+            }
+        ).length;
+
+
+    document
+        .getElementById("stockCount")
+        .textContent = count;
+
+
+    document
+        .getElementById("averageScore")
+        .textContent = average;
+
+
+    document
+        .getElementById("aGrade")
+        .textContent = aCount;
+
+}
+
+
+
+/* =========================================================
+   RENDER
+   ========================================================= */
 
 
 function render(){
 
-const q=document
-.getElementById("search")
-.value
-.toLowerCase();
-
-const grade=document
-.getElementById("grade")
-.value;
-
-const list=stocks.filter(function(s){
-
-return (
-
-(
-!q ||
-(
-s.name+" "+
-s.ticker+" "+
-s.theme
-)
-.toLowerCase()
-.includes(q)
-)
-
-&&
-
-(
-grade==="all" ||
-s.grade===grade
-)
-
-);
-
-});
+    const searchElement =
+        document.getElementById("search");
 
 
-document.getElementById("stocks")
-.innerHTML=list.map(function(s){
+    const gradeElement =
+        document.getElementById("grade");
 
-return `
+
+    const q =
+        searchElement
+            ? searchElement.value.toLowerCase()
+            : "";
+
+
+    const grade =
+        gradeElement
+            ? gradeElement.value
+            : "all";
+
+
+    const list =
+        stocks.filter(
+            function(s){
+
+                const text =
+                    (
+                        s.name +
+                        " " +
+                        s.ticker +
+                        " " +
+                        s.theme
+                    )
+                    .toLowerCase();
+
+
+                const searchMatch =
+                    !q ||
+                    text.includes(q);
+
+
+                const gradeMatch =
+                    grade === "all" ||
+                    s.grade === grade;
+
+
+                return (
+                    searchMatch &&
+                    gradeMatch
+                );
+
+            }
+        );
+
+
+
+    /* =========================
+       STOCK CARDS
+       ========================= */
+
+
+    document
+        .getElementById("stocks")
+        .innerHTML =
+
+        list.map(
+            function(s){
+
+                return `
 
 <div
-class="card stock"
-onclick="showStock('${s.ticker}')">
+    class="card stock"
+    onclick="showStock('${esc(s.ticker)}')">
+
 
 <div class="stock-head">
 
+
 <div>
+
 
 <div class="ticker">
+
 ${esc(s.ticker)}
+
 </div>
+
 
 <h3>
+
 ${esc(s.name)}
+
 </h3>
 
+
 <div class="muted">
+
 ${esc(s.theme)}
-</div>
 
 </div>
+
+
+</div>
+
 
 <div>
 
+
 <div class="score">
+
 ${s.score}
+
 </div>
+
 
 <span class="pill">
-${s.grade}
+
+${esc(s.grade)}
+
 </span>
 
-</div>
 
 </div>
+
+
+</div>
+
 
 
 <div class="meter">
 
-<span style="width:${s.score}%"></span>
+<span
+    style="width:${Number(s.score || 0)}%">
+</span>
 
 </div>
+
 
 
 <div class="metrics">
 
-<div class="metric">
-<small>Growth</small>
-<b>${s.growth}</b>
-</div>
 
 <div class="metric">
-<small>Quality</small>
-<b>${s.quality}</b>
+
+<small>
+Growth
+</small>
+
+<b>
+${s.growth}
+</b>
+
 </div>
+
 
 <div class="metric">
-<small>Institution</small>
-<b>${s.institution}</b>
+
+<small>
+Quality
+</small>
+
+<b>
+${s.quality}
+</b>
+
 </div>
+
 
 <div class="metric">
-<small>Valuation</small>
-<b>${s.valuation}</b>
+
+<small>
+Institution
+</small>
+
+<b>
+${s.institution}
+</b>
+
 </div>
+
 
 <div class="metric">
-<small>Risk</small>
-<b>${s.risk}</b>
+
+<small>
+Valuation
+</small>
+
+<b>
+${s.valuation}
+</b>
+
 </div>
+
 
 <div class="metric">
-<small>Status</small>
-<b>WATCH</b>
-</div>
+
+<small>
+Risk
+</small>
+
+<b>
+${s.risk}
+</b>
 
 </div>
+
+
+<div class="metric">
+
+<small>
+Status
+</small>
+
+<b>
+${esc(s.status || "WATCH")}
+</b>
+
+</div>
+
+
+</div>
+
 
 
 <button
-style="margin-top:14px"
-onclick="event.stopPropagation();showStock('${s.ticker}')">
+    style="margin-top:14px"
+    onclick="
+        event.stopPropagation();
+        showStock('${esc(s.ticker)}')
+    ">
 
 Research
 
 </button>
 
+
 </div>
 
 `;
 
-}).join("");
+            }
+        )
+        .join("");
 
 
-document.getElementById("matrix")
-.innerHTML=list.map(function(s){
 
-return `
+    /* =========================
+       RESEARCH MATRIX
+       ========================= */
+
+
+    document
+        .getElementById("matrix")
+        .innerHTML =
+
+        list.map(
+            function(s){
+
+                return `
 
 <tr>
 
 <td>
-<b>${esc(s.name)}</b>
+
+<b>
+${esc(s.name)}
+</b>
+
 <br>
-<small>${esc(s.ticker)}</small>
+
+<small>
+${esc(s.ticker)}
+</small>
+
 </td>
+
 
 <td>
-<b>${s.score}</b>
+
+<b>
+${s.score}
+</b>
+
 </td>
 
+
 <td class="good">
+
 ${s.growth}
+
 </td>
+
 
 <td class="good">
+
 ${s.quality}
+
 </td>
 
+
 <td>
+
 ${s.institution}
+
 </td>
 
+
 <td>
+
 ${s.valuation}
+
 </td>
+
 
 <td class="warn">
+
 ${s.risk}
+
 </td>
+
 
 </tr>
 
 `;
 
-}).join("");
+            }
+        )
+        .join("");
 
 }
 
 
+
+/* =========================================================
+   STOCK DETAIL
+   ========================================================= */
+
+
 function showStock(ticker){
 
-const s=stocks.find(
-x=>x.ticker===ticker
-);
+    const s =
+        stocks.find(
+            function(stock){
 
-if(!s)return;
+                return stock.ticker === ticker;
+
+            }
+        );
 
 
-document.getElementById("detail")
-.innerHTML=`
+    if(!s){
+
+        return;
+
+    }
+
+
+
+    document
+        .getElementById("detail")
+        .innerHTML = `
+
 
 <h2>
+
 ${esc(s.name)}
+
 </h2>
 
+
 <div class="ticker">
+
 ${esc(s.ticker)}
+
 </div>
 
+
 <p class="muted">
+
 ${esc(s.theme)}
+
 </p>
+
+
 
 <div class="grid detail-grid">
 
+
 <div class="card">
+
 Growth
+
 <br>
-<b>${s.growth}/100</b>
+
+<b>
+
+${s.growth}/100
+
+</b>
+
 </div>
 
+
 <div class="card">
+
 Quality
+
 <br>
-<b>${s.quality}/100</b>
+
+<b>
+
+${s.quality}/100
+
+</b>
+
 </div>
 
+
 <div class="card">
+
 Institutional
+
 <br>
-<b>${s.institution}/100</b>
+
+<b>
+
+${s.institution}/100
+
+</b>
+
 </div>
+
 
 <div class="card">
+
 Valuation
+
 <br>
-<b>${s.valuation}/100</b>
-</div>
+
+<b>
+
+${s.valuation}/100
+
+</b>
 
 </div>
+
+
+</div>
+
 
 
 <h3>
-PRV Score: ${s.score}/100
+
+PRV Score:
+${s.score}/100
+
 </h3>
+
 
 <div class="meter">
-<span style="width:${s.score}%"></span>
+
+<span
+    style="width:${Number(s.score || 0)}%">
+</span>
+
 </div>
 
 
+
 <h3>
+
 Investment Thesis
+
 </h3>
 
+
 <p class="muted">
+
 ${esc(s.thesis)}
+
 </p>
 
 
+
 <h3>
-PRV Compounder Checklist
+
+PRV Research Checklist
+
 </h3>
 
-${s.checks.map(function(c){
 
-return `
+${s.checks
+    .map(
+        function(c){
+
+            return `
+
 <div class="check">
+
 ✓ ${esc(c)}
+
 </div>
+
 `;
 
-}).join("")}
+        }
+    )
+    .join("")
+}
+
 
 
 <div class="risk">
 
-<b>⚠ Risk Watch</b>
+<b>
+⚠ Risk Watch
+</b>
 
 <br><br>
 
@@ -938,9 +1516,12 @@ ${esc(s.riskText)}
 </div>
 
 
+
 <div class="next">
 
-<b>Next Research Trigger</b>
+<b>
+Next Research Trigger
+</b>
 
 <br><br>
 
@@ -949,9 +1530,15 @@ ${esc(s.next)}
 </div>
 
 
+
 <button
-style="margin-top:15px"
-onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    style="margin-top:15px"
+    onclick="
+        window.scrollTo({
+            top:0,
+            behavior:'smooth'
+        })
+    ">
 
 ↑ Back to Top
 
@@ -959,22 +1546,30 @@ onclick="window.scrollTo({top:0,behavior:'smooth'})">
 
 `;
 
-document
-.getElementById("detail")
-.scrollIntoView({
-behavior:"smooth"
-});
+
+    document
+        .getElementById("detail")
+        .scrollIntoView({
+            behavior:"smooth"
+        });
 
 }
 
+
+
+/* =========================================================
+   START DASHBOARD
+   ========================================================= */
+
+
+updateKPI();
 
 render();
 
 
 </script>
 
-<script src="prv-master-data.js"></script>
 
 </body>
+
 </html>
-  
